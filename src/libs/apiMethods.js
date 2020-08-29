@@ -15,25 +15,25 @@ const stage = 'localdev'
 export const API = {
   async get(stage, uri, config) {
     const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.get(url + uri, config)
+    const res = await axios.get(uri, config)
     // console.log(res)
     return res.data
   },
   async put(stage, uri, data, config) {
     const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.put(url + uri, data, config)
+    const res = await axios.put(uri, data, config)
     // console.log(res)
     return res.data
   },
   async post(stage, uri, data, config) {
     const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.post(url + uri, data, config)
+    const res = await axios.post(uri, data, config)
     // console.log(res)
     return res.data
   },
   async del(stage, uri, config) {
     const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.delete(url + uri, config)
+    const res = await axios.delete(uri, config)
     // console.log(res)
     return res.data
   },

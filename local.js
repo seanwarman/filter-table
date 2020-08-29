@@ -36,23 +36,22 @@ function handler(req, res, callback) {
 // ▀█▀ █░▀░█ █░░█ █░░█ █▄▄▀ ░░█░░ ▀▀█
 // ▀▀▀ ▀░░░▀ █▀▀▀ ▀▀▀▀ ▀░▀▀ ░░▀░░ ▀▀▀
 
-const listByFilter = require('./bookingpublic2/listAllByFilter').main
-const filterOptions = require('./bookingpublic2/listAllFilterOptionsAndCountByFilter').main
+const listByFilter = require('./api/custom/listAllByFilter').main
+const filterOptions = require('./api/custom/listAllFilterOptionsAndCountByFilter').main
 
 
 
-const delPublic = require('./jseq/public/delete').main
-const postPublic = require('./jseq/public/create').main
-const putPublic = require('./jseq/public/update').main
-const getPublic = require('./jseq/public/get').main
-const listPublic = require('./jseq/public/list').main
+const delPublic = require('./api/jseq/public/delete').main
+const postPublic = require('./api/jseq/public/create').main
+const putPublic = require('./api/jseq/public/update').main
+const getPublic = require('./api/jseq/public/get').main
+const listPublic = require('./api/jseq/public/list').main
 
-const delAdmin = require('./jseq/admin/delete').main
-const postAdmin = require('./jseq/admin/create').main
-const putAdmin = require('./jseq/admin/update').main
-const getAdmin = require('./jseq/admin/get').main
-const listAdmin = require('./jseq/admin/list').main
-
+const delAdmin = require('./api/jseq/admin/delete').main
+const postAdmin = require('./api/jseq/admin/create').main
+const putAdmin = require('./api/jseq/admin/update').main
+const getAdmin = require('./api/jseq/admin/get').main
+const listAdmin = require('./api/jseq/admin/list').main
 
 
 
@@ -60,11 +59,11 @@ const listAdmin = require('./jseq/admin/list').main
 // █░░ █░░█ █░░█ ░░█░░ █▄▄▀ █░░█ █░░ █░░ █▀▀ █▄▄▀ ▀▀█
 // ▀▀▀ ▀▀▀▀ ▀░░▀ ░░▀░░ ▀░▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀
 
-app.put('/bookingpublic2/key/:apiKey/user/:userKey/bookings/sort/:sortBy/:start/:end/:ascOrDesc', (req, res) => {
+app.put('/custom/key/:apiKey/user/:userKey/bookings/sort/:sortBy/:start/:end/:ascOrDesc', (req, res) => {
   handler(req, res, listByFilter)
 })
 
-app.put('/bookingpublic2/key/:apiKey/user/:userKey/bookings/options/count', (req, res) => {
+app.put('/custom/key/:apiKey/user/:userKey/bookings/options/count', (req, res) => {
   handler(req, res, filterOptions)
 })
 

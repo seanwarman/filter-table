@@ -122,7 +122,7 @@ export default class Handlers {
     if(notifyBody) {
       // KEEP: creates a notification with a special booking notify template the key will be in the controller.
       try {
-        await API.post(stage, `/bookingpublic2/key/${this.user.apiKey}/user/${this.user.userKey}/notify/bookings/${this.booking.bookingsKey}`, notifyBody
+        await API.post(stage, `/custom/key/${this.user.apiKey}/user/${this.user.userKey}/notify/bookings/${this.booking.bookingsKey}`, notifyBody
         );
       } catch (error) {
         console.log('There was an error creating the email record: ', error);

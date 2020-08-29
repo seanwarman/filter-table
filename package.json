@@ -32,9 +32,17 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "typescript": "^3.5.1",
-    "websocket": "^1.0.31"
+    "websocket": "^1.0.31",
+    "cors": "^2.8.5",
+    "bigg-mysql-wrapper": "^1.0.24",
+    "jsequel": "^2.91.2",
+    "mysql": "^2.17.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
   },
   "scripts": {
+    "production": "node production.js",
+    "local": "nodemon local.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -50,6 +58,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "url-loader": "^1.1.2"
+    "url-loader": "^1.1.2",
+    "eslint": "^6.8.0"
   }
 }

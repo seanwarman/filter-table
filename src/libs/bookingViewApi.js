@@ -116,7 +116,7 @@ export default function(booking, user, loadDataAndSetState, socketLib) {
       if(notifyBody) {
         // KEEP: creates a notification with a special booking notify template the key will be in the controller.
         try {
-          await API.post(stage, `/bookingpublic2/key/${user.apiKey}/user/${user.userKey}/notify/bookings/${booking.bookingsKey}`, notifyBody);
+          await API.post(stage, `/custom/key/${user.apiKey}/user/${user.userKey}/notify/bookings/${booking.bookingsKey}`, notifyBody);
         } catch (error) {
           console.log('There was an error creating the email record: ', error);
         }

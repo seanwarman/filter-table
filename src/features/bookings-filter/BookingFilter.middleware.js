@@ -212,7 +212,7 @@ function fetchBookingsByFilterOptions(stage, apiKey, userKey, sortBy, start, end
 
   const useOptions = jsonFilter.find(json => json.options.find(opt => opt.selected))
 
-  return  API.put(stage, `/bookingpublic2/key/${apiKey}/user/${userKey}/bookings/sort/${sortBy}/${start}/${end}/${ascOrDesc}`, {
+  return  API.put(stage, `/custom/key/${apiKey}/user/${userKey}/bookings/sort/${sortBy}/${start}/${end}/${ascOrDesc}`, {
     jsonFilterOptions: useOptions ? jsonFilter : []
   }, config)
 
@@ -226,7 +226,7 @@ function fetchJsonFilter(stage, apiKey, userKey, jsonFilter) {
     cancelToken: generateCancelToken('filterOptions') 
   }
 
-  return API.put(stage, `/bookingpublic2/key/${apiKey}/user/${userKey}/bookings/options/count`, {
+  return API.put(stage, `/custom/key/${apiKey}/user/${userKey}/bookings/options/count`, {
     jsonFilterOptions: jsonFilter
   }, config)
 }
