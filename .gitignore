@@ -26,4 +26,3 @@ yarn-error.log*
 .gitconfig
 
 */**/BigglyConfig.js
-*/**/config.js
