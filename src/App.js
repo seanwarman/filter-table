@@ -22,11 +22,7 @@ import color from './libs/bigglyStatusColorPicker';
 import Amplify, { Auth } from 'aws-amplify';
 import api from './libs/apiMethods';
 
-const stage = (
-  window.location.origin.includes('localhost') || 
-  window.location.origin.includes('192.168') || 
-  window.location.origin === 'https://dev.biggly.co.uk'
-) ?  'dev' : 'staging'
+const stage = 'localdev'
 
 Amplify.configure({
   Auth: {
@@ -138,7 +134,7 @@ class App extends Component {
 
   getDivisions = async(api) => {
     const divisions = await api.listPublic({
-      name: 'bms_booking.bookingDivisions',
+      name: 't96wz179m4ly7hn9.bookingDivisions',
       columns: [
         {name: 'bookingDivName'},
         {name: 'bookingDivKey'},
@@ -151,7 +147,7 @@ class App extends Component {
 
   getPartner = async(api, partnerKey) => {
     let result = await api.getPublic({
-      name: 'Biggly.partners',
+      name: 'cjb2wo183pvguzel.partners',
       columns: [
         {name: 'apiKey'},
         {name: 'created'},
@@ -174,7 +170,7 @@ class App extends Component {
 
   getUser = async(api, cognitoUserName, cognitoEmail) => {
     const userQuery = {
-      name: 'Biggly.users',
+      name: 'cjb2wo183pvguzel.users',
       columns: [
         {name: 'accessLevel'},
         {name: 'cognitoIdentityId'},
@@ -191,7 +187,7 @@ class App extends Component {
         {name: 'userKey'},
         {name: 'partnerKeys'},
         {
-          name: 'Biggly.partners',
+          name: 'cjb2wo183pvguzel.partners',
           columns: [
             {name: 'apiKey'},
             {name: 'partnerName'}
@@ -199,7 +195,7 @@ class App extends Component {
           where: ['partners.partnerKey = users.partnerKey']
         },
         {
-          name: 'Biggly.api_keys',
+          name: 'cjb2wo183pvguzel.api_keys',
           columns: [
             {name: 'access', as: 'accessLevel'}
           ],
@@ -207,7 +203,7 @@ class App extends Component {
         },
       ],
       where: [
-        `cognitoUserName = "${cognitoUserName}"`
+        `userKey = "be1a9270-a949-11e9-9e98-6fefd095aa2c"`
       ]
     };
 
@@ -232,7 +228,7 @@ class App extends Component {
     } else {
 
       await api.createPublic({
-        name: 'Biggly.users'
+        name: 'cjb2wo183pvguzel.users'
       }, {
         emailAddress: cognitoEmail,
         cognitoUserName
@@ -253,7 +249,7 @@ class App extends Component {
 
   updateUser = async (api, userKey, body) => {
     const result = await api.updatePublic({
-      name: 'Biggly.users',
+      name: 'cjb2wo183pvguzel.users',
       where: [`userKey = "${userKey}"`]
     }, {
       ...body
@@ -1002,13 +998,9 @@ class App extends Component {
       isAuthenticated: this.state.isAuthenticated,
       userHasAuthenticated: this.userHasAuthenticated,
       changeHeader: this.changeHeader,
-      // getPartner: this.getPartner,
-      // getUser: this.getUser
-      // updateUser: this.handleUpdateUser,
       userId: this.state.userId,
       user: this.state.user,
       cogUserName: this.state.user.cognitoUserName,
-      // isAdmin: this.state.isAdmin,
       customer: this.state.customer,
       handleUpdateUser: this.handleUpdateUser,
       bookingDivisions: this.state.divisions,
@@ -1019,73 +1011,52 @@ class App extends Component {
 
     return (
       <div>
-        {
-          this.state.cogUserSet && (this.state.partner || {}).apiKey &&
-          <Layout style={{ minHeight: '100vh', paddingLeft: '0px', paddingRight: '0px' }}>
-            <Sider
-              theme="light"
-              collapsed={this.state.collapsed}
+        <Layout style={{ minHeight: '100vh', paddingLeft: '0px', paddingRight: '0px' }}>
+          <Sider
+            theme="light"
+            collapsed={this.state.collapsed}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: 'inherit',
+                maxHeight: '94px',
+                margin: '0',
+                left: '0',
+                right: '0',
+                width: '100%',
+                maxWidth: this.state.collapsed ? 80 : 200,
+                background: 'white',
+                position: 'fixed',
+                zIndex: 20
+              }}
+              className="bms_logo logo">
+              <h1 style={{ color: color('template', 'colorLabel', 'blue').color, fontWeight: 'bold', marginBottom: '0' }}>
+                {this.state.collapsed ? 'B' : 'BMS'}
+              </h1>
+            </div>
+            <div 
+              className="bms_sidebar_scrollable"
+              style={{
+                maxWidth: this.state.collapsed ? 80 : 200,
+              }}
             >
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    // position: this.state.collapsed ? 'relative' : 'fixed',
-                    height: 'inherit',
-                    maxHeight: '94px',
-                    margin: '0',
-                    left: '0',
-                    right: '0',
-                    width: '100%',
-                    maxWidth: this.state.collapsed ? 80 : 200,
-                    background: 'white',
-                    position: 'fixed',
-                    zIndex: 20
-                  }}
-                  className="bms_logo logo">
-                  <h1 style={{ color: color('template', 'colorLabel', 'blue').color, fontWeight: 'bold', marginBottom: '0' }}>
-                    {this.state.collapsed ? 'B' : 'BMS'}
-                  </h1>
-                </div>
-                <div 
-                  className="bms_sidebar_scrollable"
-                  style={{
-                    maxWidth: this.state.collapsed ? 80 : 200,
-                  }}
-                >
 
-                  {
-                    this.state.user.accessLevel === 'Admin' &&
-                      this.SiderPanelAdmin()
-                  }
+              {
+                this.SiderPanelAdmin()
+              }
 
-                  {
-                    this.state.user.accessLevel === 'Provider' &&
-                      this.SiderPanelProvider()
-                  }
-
-                  {
-                    this.state.user.accessLevel === 'Provider Admin' &&
-                      this.SiderPanelProviderAdmin()
-                  }
-
-                  {
-                    (
-                      this.state.user.accessLevel === 'Supplier' ||
-                      this.state.user.accessLevel === 'Supplier Admin'
-                    ) &&
-                      this.SiderPanelSupplier()
-                  }
-
-                </div>
-            {/* {this.userAvatarInformation(this.state.user)} */}
+            </div>
+            {/*
             <UserAvatarAndMenu
               width={this.state.collapsed ? 80 : 200}
               collapse={this.state.collapsed}
               user={this.state.user}
               update={this.handleChangePartner}
             />
+                */}
           </Sider>
 
           <Layout>
@@ -1095,11 +1066,6 @@ class App extends Component {
             </div>
           </Layout>
         </Layout>
-        }
-        {
-          this.state.cogUserSet && !this.state.partner &&
-          <AppliedRoute component={NewPartner} props={childProps} />
-        }
       </div>
     );
   }
@@ -1110,4 +1076,4 @@ export default connect(
   {
     getDivisions
   }
-)(withRouter(withAuthenticator(App)))
+)(withRouter(App))

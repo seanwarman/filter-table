@@ -4,11 +4,7 @@ import { endpoints } from '../libs/BigglyAPIEndpoints'
 
 const CancelToken = axios.CancelToken
 
-const stage = (
-  window.location.origin.includes('localhost') || 
-  window.location.origin.includes('192.168') || 
-  window.location.origin === 'http://dev.biggly.co.uk'
-) ? 'dev' : 'staging'
+const stage = 'localdev'
 
 
 // This is just some conversion, originally we used the aws-sdk API package

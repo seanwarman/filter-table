@@ -2,19 +2,19 @@ export default class Queries {
 
   getArchivedBookings(where, limit, sort) {
     return {
-      name: 'bms_booking.bookings',
+      name: 't96wz179m4ly7hn9.bookings',
       columns: [
         {name: 'bookingName'},
         {name: 'bookingsKey'},
         {name: 'dueDate'},
         {name: 'tmpKey'},
         {name: 'bookingDivKey'},
-        {name: 'bms_booking.bookingDivisions', columns: [
+        {name: 't96wz179m4ly7hn9.bookingDivisions', columns: [
           {name: 'bookingDivName'},
         ], where: [
           'bookingDivisions.bookingDivKey = bookings.bookingDivKey'
         ]},
-        {name: 'bms_booking.divisionTemplates', columns: [
+        {name: 't96wz179m4ly7hn9.divisionTemplates', columns: [
           {name: 'tmpName'}
         ], where: [
           'divisionTemplates.tmpKey = bookings.tmpKey'
@@ -31,7 +31,7 @@ export default class Queries {
 
   getBookingsTableBookings(having, sort) {
     return {
-      name: 'bms_booking.bookings',
+      name: 't96wz179m4ly7hn9.bookings',
       columns: [
         {name: 'bookingsKey'},
         {name: 'partnerKey'},
@@ -54,26 +54,26 @@ export default class Queries {
         {name: '$jsonForm[?Strategy].value', as: 'strategy'},
         {name: '$jsonForm[?Units].value', as: 'units'},
         {name: '$jsonForm[?Bigg Spend].value', as: 'biggSpend'},
-        {name: 'Biggly.users', columns: [ {name: 'concat=>(firstName " " lastName)', as: 'assignedFullName'}
+        {name: 't96wz179m4ly7hn9.users', columns: [ {name: 'concat=>(firstName " " lastName)', as: 'assignedFullName'}
         ], where: [
           'users.userKey = bookings.assignedUserKey'
         ]},
-        {name: 'Biggly.users', columns: [
+        {name: 't96wz179m4ly7hn9.users', columns: [
           {name: 'concat=>(firstName " " lastName)', as: 'createdByFullName'}
         ], where: [
           'users.userKey = bookings.createdUserKey'
         ]},
-        {name: 'bms_booking.divisionTemplates', columns: [
+        {name: 't96wz179m4ly7hn9.divisionTemplates', columns: [
           {name: 'tmpName'}
         ], where: [
           'divisionTemplates.tmpKey = bookings.tmpKey'
         ]},
-        {name: 'Biggly.uploads', columns: [
+        {name: 't96wz179m4ly7hn9.uploads', columns: [
           {name: 'count=>(uploadsKey)', as: 'uploadsCount'}
         ], where: [
           'uploads.bookingsKey = bookings.bookingsKey'
         ]},
-        {name: 'bms_booking.bookingComments', columns: [
+        {name: 't96wz179m4ly7hn9.bookingComments', columns: [
           {name: 'count=>(bookingCommentsKey)', as: 'commentCount'}
         ], where: [
           'bookingComments.bookingsKey = bookings.bookingsKey'
@@ -88,10 +88,10 @@ export default class Queries {
         //
         // This way we don't have to store the partnerKey (or createdPartnerKey)
         // in the booking.
-        {name: 'Biggly.customers', columns: [
+        {name: 't96wz179m4ly7hn9.customers', columns: [
           {name: 'partnerKey'},
           {name: 'customerName'},
-          {name: 'Biggly.partners', columns: [
+          {name: 't96wz179m4ly7hn9.partners', columns: [
             {name: 'partnerName'}
           ], where: [
             'partners.partnerKey = customers.partnerKey'
@@ -107,7 +107,7 @@ export default class Queries {
 
   getCompiledFlagsFromAllDivisions() {
     return {
-      name: 'bms_booking.bookingDivisions',
+      name: 't96wz179m4ly7hn9.bookingDivisions',
       columns: [
         {name: 'bookingDivKey'},
         {name: 'jsonFlags'},
@@ -117,7 +117,7 @@ export default class Queries {
 
   getBookingDiv(bookingDivKey) {
     return {
-      name: 'bms_booking.bookingDivisions',
+      name: 't96wz179m4ly7hn9.bookingDivisions',
       columns: [
         {name: 'bookingDivKey'},
         {name: 'divName'},
@@ -135,7 +135,7 @@ export default class Queries {
   }
   getBookingFormBookingDiv(bookingDivKey) {
     return {
-      name: 'bms_booking.bookingDivisions',
+      name: 't96wz179m4ly7hn9.bookingDivisions',
       columns: [
         {name: 'jsonFlags'},
         {name: 'bookingDivKey'},
@@ -147,7 +147,7 @@ export default class Queries {
   }
   getCustomers(partnerKey) {
     return {
-      name: 'Biggly.customers',
+      name: 't96wz179m4ly7hn9.customers',
       columns: [
         { name: 'customerKey'},
         { name: 'partnerKey'},
@@ -170,12 +170,12 @@ export default class Queries {
   }
   createCustomer(customer) {
     return {
-      name: 'Biggly.customers'
+      name: 't96wz179m4ly7hn9.customers'
     }
   }
   deleteStateRecord(bookingStateKey) {
     return {
-      name: 'bms_booking.bookingState',
+      name: 't96wz179m4ly7hn9.bookingState',
       where: [
         `bookingStateKey = "${bookingStateKey}"`
       ]
@@ -183,23 +183,23 @@ export default class Queries {
   }
   addStateRecord() {
     return {
-      name: 'bms_booking.bookingState'
+      name: 't96wz179m4ly7hn9.bookingState'
     }
   }
   // createComment(bookingsKey, comment, createdUserKey) {
   //   return {
-  //     name: 'bms_booking.bookingComments'
+  //     name: 't96wz179m4ly7hn9.bookingComments'
   //   }
   // }
   proceedBookings(booking, or) {
     return {
-      name: 'bms_booking.bookings',
+      name: 't96wz179m4ly7hn9.bookings',
       where: [or]
     }
   }
   getBookingsSmall(or) {
     return {
-      name: 'bms_booking.bookings',
+      name: 't96wz179m4ly7hn9.bookings',
       columns: [
         {name: 'assignedUserKey'},
         {name: 'bookingsKey'},
@@ -209,11 +209,11 @@ export default class Queries {
   }
   getComments(bookingsKey) {
     return {
-      name: 'bms_booking.bookingComments',
+      name: 't96wz179m4ly7hn9.bookingComments',
       columns: [
         {name: 'bookingCommentsKey'},
         {name: 'createdUserKey'},
-        {name: 'Biggly.users', columns: [
+        {name: 't96wz179m4ly7hn9.users', columns: [
           {name: 'firstName'},
           {name: 'lastName'},
         ], where: [
@@ -231,11 +231,11 @@ export default class Queries {
   }
   getCommentsByBookingsKeys(bookingsKeys) {
     return {
-      name: 'bms_booking.bookingComments',
+      name: 't96wz179m4ly7hn9.bookingComments',
       columns: [
         {name: 'bookingCommentsKey'},
         {name: 'createdUserKey'},
-        {name: 'Biggly.users', columns: [
+        {name: 't96wz179m4ly7hn9.users', columns: [
           {name: 'firstName'},
           {name: 'lastName'},
         ], where: [
@@ -243,7 +243,7 @@ export default class Queries {
         ]},
         {name: 'created'},
         {name: 'bookingsKey'},
-        {name: 'bms_booking.bookings', columns: [
+        {name: 't96wz179m4ly7hn9.bookings', columns: [
           {name: 'bookingName'}
         ], where: [
           'bookingComments.bookingsKey = bookings.bookingsKey'
@@ -260,14 +260,14 @@ export default class Queries {
   }
   updateBookings(booking, or) {
     return {
-      name: 'bms_booking.bookings',
+      name: 't96wz179m4ly7hn9.bookings',
       where: [or]
     }
   }
 
   getBookingStatesByUser(userKey) {
     return {
-      name: 'bms_booking.bookingState',
+      name: 't96wz179m4ly7hn9.bookingState',
       columns: [
         {name: 'bookingStateKey'},
         {name: 'userKey'},
@@ -282,7 +282,7 @@ export default class Queries {
 
   getBookingStatesForFilterView(userKey) {
     return {
-      name: 'bms_booking.bookingState',
+      name: 't96wz179m4ly7hn9.bookingState',
       columns: [
         {name: 'bookingStateKey'},
         {name: 'userKey'},
@@ -298,7 +298,7 @@ export default class Queries {
 
   getBookingStates(userKey, bookingDivKey) {
     return {
-      name: 'bms_booking.bookingState',
+      name: 't96wz179m4ly7hn9.bookingState',
       columns: [
         {name: 'bookingStateKey'},
         {name: 'userKey'},
@@ -313,7 +313,7 @@ export default class Queries {
   }
   updateBooking(bookingsKey, booking) {
     return {
-      name: 'bms_booking.bookings',
+      name: 't96wz179m4ly7hn9.bookings',
       where: [
         `bookingsKey = "${bookingsKey}"`
       ]
@@ -321,22 +321,22 @@ export default class Queries {
   }
   createAudit() {
     return {
-      name: 'bms_booking.bookingAudit'
+      name: 't96wz179m4ly7hn9.bookingAudit'
     }
   }
   createUpload(upload) {
     return {
-      name: 'Biggly.uploads',
+      name: 't96wz179m4ly7hn9.uploads',
     }
   }
   getUploads(bookingsKey) {
     return {
-      name: 'Biggly.uploads',
+      name: 't96wz179m4ly7hn9.uploads',
       columns: [
         {name: 'uploadsKey'},
         {name: 'created'},
         {name: 'uploadedUserKey'},
-        {name: 'Biggly.users', columns: [
+        {name: 't96wz179m4ly7hn9.users', columns: [
           {name: 'concat=>(firstName " " lastName)', as: 'uploadedUserName'}
         ], where: [
           'uploads.uploadedUserKey = users.userKey'
@@ -355,12 +355,12 @@ export default class Queries {
   }
   getUploadsByBookingsKeys(bookingsKeys) {
     return {
-      name: 'Biggly.uploads',
+      name: 't96wz179m4ly7hn9.uploads',
       columns: [
         {name: 'uploadsKey'},
         {name: 'created'},
         {name: 'uploadedUserKey'},
-        {name: 'Biggly.users', columns: [
+        {name: 't96wz179m4ly7hn9.users', columns: [
           {name: 'concat=>(firstName " " lastName)', as: 'uploadedUserName'}
         ], where: [
           'uploads.uploadedUserKey = users.userKey'
@@ -381,12 +381,12 @@ export default class Queries {
   }
   createComment(comment) {
     return {
-      name: 'bms_booking.bookingComments',
+      name: 't96wz179m4ly7hn9.bookingComments',
     }
   }
   createBookingAudit(audit) {
     return {
-      name: 'bms_booking.bookingAudit',
+      name: 't96wz179m4ly7hn9.bookingAudit',
     }
   }
 }

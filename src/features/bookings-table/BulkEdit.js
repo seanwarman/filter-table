@@ -264,7 +264,7 @@ class BulkEdit extends React.Component {
                           isLeaf: false,
                           async get(apiKey) {
                             return api.listPublic({
-                              name: 'Biggly.partners',
+                              name: 't96wz179m4ly7hn9.partners',
                               columns: [
                                 { name: 'partnerKey' },
                                 { name: 'partnerName' },
@@ -278,7 +278,7 @@ class BulkEdit extends React.Component {
                         getKeys: ['partnerKey'],
                         async get(apiKey, partnerKey) {
                           return api.listPublic({
-                            name: 'Biggly.customers',
+                            name: 't96wz179m4ly7hn9.customers',
                             columns: [
                               { name: 'customerKey' },
                               { name: 'partnerKey' },
@@ -394,7 +394,7 @@ class BulkEdit extends React.Component {
                           optionKey: 'userName',
                           async get(apiKey) {
                             let records = await api.listPublic({
-                              name: 'Biggly.users',
+                              name: 't96wz179m4ly7hn9.users',
                               columns: [
                                 { name: 'userKey' },
                                 {

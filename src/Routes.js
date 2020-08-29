@@ -62,34 +62,34 @@ export default ({ childProps }) => {
       <HomeRoute path="/" exact props={childProps} />
 
       { /* CONSOLE */}
-      <AppliedRoute path="/console/services" exact component={Services} props={childProps} />
-      <AppliedRoute path="/console/services/:serviceKey" exact component={ViewService} props={childProps} />
-      <AppliedRoute path="/console/customers" exact component={Customers} props={childProps} />
-      <AppliedRoute path="/console/customers/:customerKey" exact component={ViewCustomer} props={childProps} />
-      <AppliedRoute path="/console/partners" exact component={Partners} props={childProps} />
-      <AppliedRoute path="/console/partners/:partnerKey" exact component={ViewPartner} props={childProps} />
-      <AppliedRoute path="/console/users" exact component={Users} props={childProps} />
-      <AppliedRoute path="/console/users/:userKey" exact component={ViewUser} props={childProps} />
+      {/* <AppliedRoute path="/console/services" exact component={Services} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/services/:serviceKey" exact component={ViewService} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/customers" exact component={Customers} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/customers/:customerKey" exact component={ViewCustomer} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/partners" exact component={Partners} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/partners/:partnerKey" exact component={ViewPartner} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/users" exact component={Users} props={childProps} /> */}
+      {/* <AppliedRoute path="/console/users/:userKey" exact component={ViewUser} props={childProps} /> */}
 
       { /* SITEPING */}
-      <AppliedRoute path="/siteping/sites" exact component={Sites} props={childProps} />
-      <AppliedRoute path="/siteping/stats/:sitepingKey" exact component={Stats} props={childProps} />
+      {/* <AppliedRoute path="/siteping/sites" exact component={Sites} props={childProps} /> */}
+      {/* <AppliedRoute path="/siteping/stats/:sitepingKey" exact component={Stats} props={childProps} /> */}
 
       { /* NOTIFY */}
-      <AdminRoute path="/notify/templates" exact component={Templates} props={childProps} />
-      <AdminRoute path="/notify/templates/new" exact component={NewTemplate} props={childProps} />
-      <AdminRoute path="/notify/templates/:templateKey" exact component={ViewTemplate} props={childProps} />
-      <AdminRoute path="/notify/emails" exact component={Emails} props={childProps} />
+      {/* <AdminRoute path="/notify/templates" exact component={Templates} props={childProps} /> */}
+      {/* <AdminRoute path="/notify/templates/new" exact component={NewTemplate} props={childProps} /> */}
+      {/* <AdminRoute path="/notify/templates/:templateKey" exact component={ViewTemplate} props={childProps} /> */}
+      {/* <AdminRoute path="/notify/emails" exact component={Emails} props={childProps} /> */}
 
       { /* BOOKING HUB */}
-      <AdminRoute path="/bookinghub/divisions" exact component={BookingDivisions} props={childProps} />
-      <AdminRoute path="/bookinghub/divisions/:bookingDivKey" exact component={BookingViewDivision} props={childProps} />
-      <AdminRoute path="/bookinghub/divisions/template/:tmpKey" exact component={BookingHubTemplate} props={childProps} />
+      {/* <AdminRoute path="/bookinghub/divisions" exact component={BookingDivisions} props={childProps} /> */}
+      {/* <AdminRoute path="/bookinghub/divisions/:bookingDivKey" exact component={BookingViewDivision} props={childProps} /> */}
+      {/* <AdminRoute path="/bookinghub/divisions/template/:tmpKey" exact component={BookingHubTemplate} props={childProps} /> */}
 
       {/* TODO: I don't think this route is needed anymore, if not delete the BookingHubForm component as well */}
       {/* <AdminRoute path="/bookinghub/bookings/form" exact component={BookingHubForm} props={childProps} /> */}
 
-      <AppliedRoute path="/archive" exact component={Archive} props={childProps} />
+      {/* <AppliedRoute path="/archive" exact component={Archive} props={childProps} /> */}
 
       <Route
         exact
@@ -100,7 +100,7 @@ export default ({ childProps }) => {
       ></Route>
 
 
-      { 
+      {/* 
         childProps.bookingDivisions.map((div, i) => ( 
           <Route
             exact
@@ -156,46 +156,46 @@ export default ({ childProps }) => {
             )}
           /> 
         )) 
-      } 
+      */} 
 
       { /* CAMPAIGNHUB */}
-      <AppliedRoute path="/campaign-hub/divisions" exact component={SeoDivisions} props={childProps} />
-      <AppliedRoute path="/campaign-hub/divisions/:campaignDivKey" exact component={SeoViewDivision} props={childProps} />
-      <AppliedRoute path="/campaign-hub/divisions/:campaignDivKey/tab/:divTabsKey" exact component={SeoViewTabBuilder} props={childProps} />
-      <AppliedRoute path="/campaign-hub/products" exact component={Products} props={childProps} />
-      <AppliedRoute path="/campaign-hub/packages" exact component={Packages} props={childProps} />
-      <AppliedRoute path="/campaign-hub/packages/:packageKey" exact component={ViewPackage} props={childProps} />
-      <AppliedRoute path="/campaign-hub/campaigns" exact component={Campaigns} props={childProps} />
-      <AppliedRoute path="/campaign-hub/campaigns/:campaignKey" exact component={ViewCampaign} props={childProps} />
-      <AppliedRoute path="/campaign-hub/booking-templates" exact component={BookingTemplates} props={childProps} />
-      <AppliedRoute path="/campaign-hub/booking-templates/form" exact component={TemplateForm} props={childProps} />
-      <AppliedRoute path="/campaign-hub/booking-templates/:bookingTmpKey" exact component={EditBookingTemplate} props={childProps} />
+      {/* <AppliedRoute path="/campaign-hub/divisions" exact component={SeoDivisions} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/divisions/:campaignDivKey" exact component={SeoViewDivision} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/divisions/:campaignDivKey/tab/:divTabsKey" exact component={SeoViewTabBuilder} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/products" exact component={Products} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/packages" exact component={Packages} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/packages/:packageKey" exact component={ViewPackage} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/campaigns" exact component={Campaigns} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/campaigns/:campaignKey" exact component={ViewCampaign} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/booking-templates" exact component={BookingTemplates} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/booking-templates/form" exact component={TemplateForm} props={childProps} /> */}
+      {/* <AppliedRoute path="/campaign-hub/booking-templates/:bookingTmpKey" exact component={EditBookingTemplate} props={childProps} /> */}
 
       { /* SOCIAL */}
-      <AppliedRoute path="/social/calc" exact component={Calc} props={childProps} />
+      {/* <AppliedRoute path="/social/calc" exact component={Calc} props={childProps} /> */}
 
       { /* TRAKI */}
-      <AppliedRoute path="/traki/analytics" exact component={Analytics} props={childProps} />
-      <AppliedRoute path="/traki/calls" exact component={Calls} props={childProps} />
-      <AppliedRoute path="/traki/emails" exact component={TrakiEmails} props={childProps} />
-      <AppliedRoute path="/traki/forms" exact component={TrakiForms} props={childProps} />
-      <AppliedRoute path="/traki/websites" exact component={TrakiWebsites} props={childProps} />
+      {/* <AppliedRoute path="/traki/analytics" exact component={Analytics} props={childProps} /> */}
+      {/* <AppliedRoute path="/traki/calls" exact component={Calls} props={childProps} /> */}
+      {/* <AppliedRoute path="/traki/emails" exact component={TrakiEmails} props={childProps} /> */}
+      {/* <AppliedRoute path="/traki/forms" exact component={TrakiForms} props={childProps} /> */}
+      {/* <AppliedRoute path="/traki/websites" exact component={TrakiWebsites} props={childProps} /> */}
 
       { /* REPORTS */}
-      <AppliedRoute path="/reports/UnitTracker" exact component={UnitTracker} props={childProps} />
-      <AppliedRoute path="/reports/content-capacity-planner" exact component={ContentCapacityPlanner} props={childProps} />
-      <AppliedRoute path="/reports/benchmarks/:page?/:customerSiteKey?/:benchmarksKey?" exact component={Benchmarks} props={childProps} />
-      <AppliedRoute path="/reports/benchmark/:benchmarksKey" component={Benchmark} props={childProps} />
+      {/* <AppliedRoute path="/reports/UnitTracker" exact component={UnitTracker} props={childProps} /> */}
+      {/* <AppliedRoute path="/reports/content-capacity-planner" exact component={ContentCapacityPlanner} props={childProps} /> */}
+      {/* <AppliedRoute path="/reports/benchmarks/:page?/:customerSiteKey?/:benchmarksKey?" exact component={Benchmarks} props={childProps} /> */}
+      {/* <AppliedRoute path="/reports/benchmark/:benchmarksKey" component={Benchmark} props={childProps} /> */}
 
       { /* RANKSPOT */}
-      <AppliedRoute path="/rankspot/overview" exact component={RankOverview} props={childProps} />
-      <AppliedRoute path="/rankspot/websites" exact component={RankWebsites} props={childProps} />
+      {/* <AppliedRoute path="/rankspot/overview" exact component={RankOverview} props={childProps} /> */}
+      {/* <AppliedRoute path="/rankspot/websites" exact component={RankWebsites} props={childProps} /> */}
 
       { /* SITESPOT */}
-      <AppliedRoute path="/sitespot/chat" exact component={Chat} props={childProps} />
-      <AppliedRoute path="/sitespot/templates" exact component={SiteSpotTemplates} props={childProps} />
-      <AppliedRoute path="/sitespot/templates/new" exact component={SiteSpotNewTemplate} props={childProps} />
-      <AppliedRoute path="/sitespot/templates/:templateKey" exact component={SiteSpotViewTemplate} props={childProps} />
+      {/* <AppliedRoute path="/sitespot/chat" exact component={Chat} props={childProps} /> */}
+      {/* <AppliedRoute path="/sitespot/templates" exact component={SiteSpotTemplates} props={childProps} /> */}
+      {/* <AppliedRoute path="/sitespot/templates/new" exact component={SiteSpotNewTemplate} props={childProps} /> */}
+      {/* <AppliedRoute path="/sitespot/templates/:templateKey" exact component={SiteSpotViewTemplate} props={childProps} /> */}
 
       <Route path="/notfound" component={NotFound} />
       { /* Finally, catch all unmatched routes */}

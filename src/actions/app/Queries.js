@@ -2,7 +2,7 @@ export default class Queries {
 
   getDivisions() {
     return {
-      name: 'bms_booking.bookingDivisions',
+      name: 't96wz179m4ly7hn9.bookingDivisions',
       columns: [
         {name: 'bookingDivKey'},
         {name: 'divName'},
