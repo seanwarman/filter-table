@@ -1,0 +1,33 @@
+#custom-filter-panel {
+  position: relative;
+}
+
+#custom-filter-panel .card {
+  margin-bottom: 16;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+#custom-filter-panel .top-row {
+  display: flex;
+  align-items: center;
+}
+
+#custom-filter-panel .heading {
+  color: #2baae0;
+}
+
+#custom-filter-panel .heading-loading-icon-wrapper {
+  position: absolute;
+  top: -30;
+  right: 30;
+}
+
+#custom-filter-panel .loading-icon {
+  margin-left: 16
+}
+
+#custom-filter-panel .badge {
+  background-color: #2baae0;
+}

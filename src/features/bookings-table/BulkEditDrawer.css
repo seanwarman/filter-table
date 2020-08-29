@@ -1,0 +1,68 @@
+#bulkeditdrawer .ant-drawer-close {
+  color: white;
+}
+
+#bulkeditdrawer .ant-drawer-close:focus, .ant-drawer-close:hover {
+  color: #e6e6e6bf;
+}
+
+#bulkeditdrawer .tabs {
+  margin-top: 26px;
+}
+
+#bulkeditdrawer .ant-tabs-bar {
+  margin-bottom: 60px;
+}
+
+#bulkeditdrawer.ant-drawer-right.ant-drawer-open .ant-drawer-content-wrapper {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+#bulkeditdrawer .ant-tabs-nav {
+  color: white;
+}
+
+#bulkeditdrawer .ant-tabs-nav .ant-tabs-tab:hover {
+  color: white;
+}
+
+#bulkeditdrawer .ant-tabs-nav .ant-tabs-tab-active {
+  color: white;
+}
+
+#bulkeditdrawer .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  background-color: white !important;
+}
+
+#bulkeditdrawer .greystrip {
+  position: absolute;
+  width: 100%;
+  height: 23px;
+  background: #f0f2f5;
+  top: 94px;
+  left: 0;
+}
+
+#bulkeditdrawer .ant-tabs-nav-wrap {
+  margin-bottom: 0px;
+}
+
+#bulkeditdrawer button:focus {
+  outline: 1px dotted;
+}
+
+#bulkeditdrawer .bluebanner {
+  position: absolute;
+  width: 100%;
+  height: 94px;
+  background: #33aae0;
+  top: 0;
+  left: 0;
+}
+
+#bulkeditdrawer .badge {
+  position: absolute;
+  left: 8px;
+  top: 14;
+}

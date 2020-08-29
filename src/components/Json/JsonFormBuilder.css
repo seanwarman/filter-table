@@ -1,0 +1,66 @@
+.dynamic-button {
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    font-size: 24px;
+    color: #999;
+    transition: all .3s;
+    margin-right: 5px;
+  }
+  .dynamic-button:hover {
+    color: #777;
+  }
+  .dynamic-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  #form-preview {
+    pointer-events: none;
+  }
+  #form-preview textarea {
+    resize: none;
+  }
+  #form-preview .ant-form-item {
+    font-size: .7rem;
+    margin-bottom: 0;
+  }
+  #form-preview .ant-form-item-label {
+    height: 30px;
+  }
+  #form-preview .ant-form-item-label label {
+    color: gray;
+  }
+  #form-preview h3 {
+    color: gray;
+  }
+  #form-preview .bms-dropdown-preview {
+    width: 25%;
+    font-size: .5rem;
+    color: #858585;
+    margin-bottom: 8px;
+  }
+  #form-preview .bms-input-preview {
+    width: 50%;
+    font-size: .5rem;
+    color: #858585;
+    margin-bottom: 8px;
+  }
+  #form-preview .bms-number-preview {
+    width: 10%;
+    font-size: .5rem;
+    color: #858585;
+    margin-bottom: 8px;
+  }
+  #form-preview .bms-multi-preview {
+    width: 50%;
+    font-size: .5rem;
+    color: #858585;
+    margin-bottom: 8px;
+  }
+  #form-preview .bms-textarea-preview {
+    font-size: .5rem;
+    color: #858585;
+    margin-bottom: 8px;
+    height: 70px;
+  }

@@ -1,0 +1,29 @@
+.bms_avatar {
+  padding: 8px;
+  border-radius: 35px;
+  background-color: #F0F2F5;
+  display: flex;
+  align-items: center;
+}
+.bms_avatar_hover {
+  transition: all .3s;
+}
+
+.bms_avatar_hover:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+.bms_partner {
+  padding: 16px;
+}
+.bms_partner_selected {
+  background-color: #24A8DE;
+  transition: all .3s;
+}
+.bms_partner_unselected {
+  transition: all .3s;
+}
+.bms_partner_unselected:hover {
+  color: #24A8DE;
+  cursor: pointer;
+}

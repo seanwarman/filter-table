@@ -1,0 +1,11 @@
+#searchbar .anticon svg {
+  position: absolute;
+  bottom: 5px;
+  right: 4px;
+}
+
+#searchbar input {
+  border: none;
+  margin-bottom: 24px;
+}
+

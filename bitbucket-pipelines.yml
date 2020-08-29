@@ -1,0 +1,39 @@
+image: node:11.13.0
+pipelines:
+  branches:
+    dev:
+      - step:
+          name: Install
+          script:
+          - rm -rf node_modules
+          - npm cache verify
+          - npm install
+          - CI=false npm run build
+          - apt-get update && apt-get install -y awscli
+          - aws s3 rm s3://dev.biggly.co.uk --recursive
+          - aws s3 sync ./build s3://dev.biggly.co.uk --acl public-read
+          - aws s3 cp --cache-control mas-age=0 ./build/service-worker.js s3://dev.biggly.co.uk
+    staging:
+      - step:
+          name: Install
+          script:
+          - rm -rf node_modules
+          - npm cache verify
+          - npm install
+          - CI=false npm run build
+          - apt-get update && apt-get install -y awscli
+          - aws s3 rm s3://bms2.biggly.co.uk --recursive
+          - aws s3 sync ./build s3://bms2.biggly.co.uk --acl public-read
+          - aws s3 cp --cache-control mas-age=0 ./build/service-worker.js s3://bms2.biggly.co.uk
+    master:
+      - step:
+          name: Install
+          script:
+          - rm -rf node_modules
+          - npm cache verify
+          - npm install
+          - npm run build
+          - apt-get update && apt-get install -y awscli
+          - aws s3 rm s3://bms.biggly.co.uk --recursive
+          - aws s3 sync ./build s3://bms.biggly.co.uk --acl public-read
+          - aws s3 cp --cache-control mas-age=0 ./build/service-worker.js s3://bms.biggly.co.uk

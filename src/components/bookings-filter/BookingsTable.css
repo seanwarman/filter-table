@@ -1,0 +1,70 @@
+#bms-close-icon {
+  font-size: 6px;
+  background: #bfbfbf;
+  padding: 3px;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  z-index: 1;
+  transition: all .3s;
+}
+#bms-close-icon:hover {
+  background: #8c8c8c;
+}
+.filter-wrapper {
+  /* margin-top: 12px; */
+  height: 230;
+  overflow-y: scroll;
+  padding-right: 1px;
+  padding-bottom: 1px;
+}
+.filter-wrapper::-webkit-scrollbar {
+  width: 3px;
+}
+.filter-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d4d4d4;
+}
+.filter-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #bbbbbb;
+}
+.bms--filter-options-row {
+  max-width: 100%;
+  height: 315px;
+  overflow-x: scroll;
+}
+.bms--filter-options-wrapper {
+  display: flex;
+}
+.bms--filter-options {
+  min-width: 129px;
+  max-width: 129px;
+  padding-left: 0px;
+  padding-right: 2px;
+}
+.bms--filter-options-row::-webkit-scrollbar {
+  height: 6px;
+}
+.bms--filter-options-row::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d4d4d4;
+}
+.bms--filter-options-row::-webkit-scrollbar-thumb:hover {
+  background-color: #bbbbbb;
+}
+
+.ant-checkbox-inner {
+  position: absolute;
+}
+
+.ant-checkbox-checked, .ant-checkbox {
+  width: 16px;
+  height: 16px;
+}
+
+.ant-checkbox-checked input[type="checkbox"], .ant-checkbox-input {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}

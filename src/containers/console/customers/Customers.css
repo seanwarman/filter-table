@@ -1,0 +1,21 @@
+
+.note_header {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin: 5px 0;
+}
+.note_body {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.bottomRight {
+
+    position: absolute !important;
+    bottom: 20px;
+    right: 20px;
+
+}
+.bottomRight:hover {
+    color: #fff;
+}

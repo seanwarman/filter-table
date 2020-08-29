@@ -1,0 +1,43 @@
+#dropdown {
+  cursor: pointer;
+  text-align: right;
+  color: #2baae0;
+  position: absolute;
+  right: 26px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.filterbutton { 
+  cursor: pointer;
+  text-align: right;
+  color: #2baae0;
+  position: absolute;
+  right: 26px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+#filtersaver .menuitem {
+  position: relative;
+  z-index: 1;
+}
+
+#filtersaver .filterinput {
+  border: none;
+}
+
+#filtersaver .icon {
+  position: absolute;
+  z-index: 2;
+  right: 8px;
+  top: 9px;
+  font-size: 15px;
+  color: #adadad;
+}
+
+#filtersaver .icon:hover {
+  cursor: pointer;
+}

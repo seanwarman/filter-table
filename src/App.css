@@ -1,0 +1,410 @@
+@import '~antd/dist/antd.css';
+
+.hide {
+  display: none !important;
+}
+.bms_padder {
+  margin-top: 16px;
+  padding-top: 2rem;
+}
+.bms_trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.bms_trigger:hover {
+  color: #1890ff;
+}
+
+.bms_logo {
+  background: rgba(255,255,255,.08);
+  margin: 16px;
+}
+
+.bms_clickable {
+  cursor: pointer;
+}
+
+.ant-btn { margin: 5px;}
+.bms_logo {
+
+  text-align: center;
+}
+
+.bms_logo h3 {
+  color: #ffffff;
+  padding: 10px;
+
+}
+.bms_price {
+  width: 150px;
+  height: 150px;
+  background-color: #32A350;
+  padding: 20px;
+  color: #fff;
+  font-size: 2em;
+  border-radius: 50%;
+  padding-top: 50px;
+  text-align: center;
+  margin: 15px auto;
+}
+.bms_loading_icon {
+
+  font-size: 3em;
+  text-align: center;
+
+}
+.bms_pageHeader {
+  font-size: 1.3em;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+.bms_trigger {
+  font-size: 1.4em;
+}
+
+.bms_service_block {
+  padding-left: 30px;
+  position: relative;
+}
+.bms_service_item {
+  margin: 5px 0;
+}
+.bms_service_item a {
+  color: inherit;
+}
+.bms_service_block .bms_service_icon {
+  position: absolute;
+  left: 0px;
+  font-size: 1.5em;
+}
+.anticon {
+  vertical-align: 0em !important;
+}
+.breadcrumbChild
+{
+  color: #ffffff;
+}
+
+.bms-content-header-parent .ant-breadcrumb .ant-breadcrumb-link {
+  color: #ffffff;
+}
+
+.bms-content-header-parent .ant-breadcrumb .ant-breadcrumb-separator {
+  color: #ffffff;
+}
+
+.bms-content-header-parent .ant-breadcrumb span .breadcrumbChild a {
+  color: #ffffff;
+}
+
+.bms-content-header-parent .ant-breadcrumb span:last-child .breadcrumbChild a {
+  text-decoration: underline;
+}
+
+.ant-menu-item a.active-link {
+  /* padding-left: 1rem; */
+  background: #2baae0;
+  transition: all .5s; 
+  color: #ffffff;
+}
+.ant-menu-item a.active-link:hover {
+  /* padding-left: 1rem; */
+  background: #269ccf;
+  color: #ffffff;
+  cursor: pointer;
+}
+.ant-menu .ant-menu-item a {
+  padding-left: 1rem;
+  /* background: #2baae0; */
+  /* color: #ffffff; */
+}
+
+.chat {
+
+  display: table-cell;
+  vertical-align: bottom;
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.chatSystem {
+  padding: 20px 30px;
+  background-color: #ccc;
+  float: left;
+  border-radius: 15px;
+  clear: both;
+  margin: 15px 0;
+}
+.chatUser {
+  padding: 20px 30px;
+  background-color: #1890ff;
+  float: right;
+  color: #fff;
+  border-radius: 15px;
+  clear: both;
+  margin: 15px 0;
+}
+
+.datePickerDiv {
+  width: 100%;
+  text-align: right;
+}
+
+.datePicker {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 15;
+  border: 1px #ccc solid;
+}
+.deviceNumber {
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 0 0;
+  letter-spacing: -2px;
+  color: #212528;
+}
+.devicePercentage {
+  font-size: 16px;
+  text-align: center;
+  margin: 0 0 10px 0;
+  color: #212528;
+}
+
+.sitePickerDiv {
+  width: 100%;
+  text-align: left;
+}
+
+.bms_sidebar_scrollable {
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 94px;
+  bottom: 64px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.bms_sidebar_scrollable::-webkit-scrollbar {
+  width: 3px;
+}
+.bms_sidebar_scrollable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d4d4d4;
+}
+.bms_sidebar_scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #bbbbbb;
+}
+
+/****************************************/
+/** Styles for change header container **/
+/****************************************/
+
+.bms-content-header-parent {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.ant-layout .ant-layout-content {
+  background: none;
+}
+
+.ant-menu-vertical {
+  border-right: none
+}
+
+/*******************************************/
+/** Styling for the Services section - KR **/
+/*******************************************/
+
+.bms_price {
+  width: 150px;
+  height: 150px;
+  background-color: #32A350;
+  padding: 20px;
+  color: #fff;
+  font-size: 2em;
+  border-radius: 50%;
+  padding-top: 50px;
+  text-align: center;
+  margin: 15px auto;
+}
+.bms_loading_icon {
+
+  font-size: 3em;
+  text-align: center;
+
+}
+.bms_pageHeader {
+  font-size: 1.3em;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+.bms_trigger {
+  font-size: 1.4em;
+}
+
+.bms_service_block {
+  padding-left: 30px;
+  position: relative;
+}
+.bms_service_item {
+  margin: 5px 0;
+}
+.bms_service_item a {
+  color: inherit;
+}
+.bms_service_block .bms_service_icon {
+  position: absolute;
+  left: 0px;
+  font-size: 1.5em;
+}
+.anticon {
+  vertical-align: 0em !important;
+}
+.priceItem span {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.priceBlock {
+  margin: 0 -20px;
+  margin-bottom: -20px;
+  background-color: #1890FF;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px;
+  color: #ffffff;
+}
+.priceItem {
+  margin: 5px 0 15px 0;
+}
+.priceDescription {
+  font-size: 14px;
+  margin: 5px 0 30px 0;
+}
+
+.bms-text-light {
+  color: #ffffff;
+}
+
+.sitePickerDiv {
+  width: 100%;
+  text-align: left;
+}
+
+.ant-layout-content .bms--parent-card-container-no-bg {
+  background: none;
+}
+
+.bms--parent-card-container-no-bg .ant-card-body {
+  background: none;
+}
+
+/* .ant-layout-content .bms--card-no-padding .ant-card-body {
+padding: 0;
+} */
+
+.bms--top-card-mb-20 .ant-card-head {
+  margin-bottom: 20px;
+}
+
+.bms-white-bg .ant-card-head {
+  background: #ffffff;
+}
+
+#bms-card-title-blue .ant-card-head  {
+  background:none;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.ant-layout-content .bms--inner-card-content-padding .ant-card-body {
+  padding: 24px 32px;
+}
+
+#bms--grid-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+#bms--grid-parent .bms--vertical-height-100 {
+  height: 100%;
+}
+
+.ant-layout-has-sider .ant-menu-inline {
+  border: none;
+}
+
+/** Booking Table view styles **/
+.bms--has-tmp-name-tag {
+  position: relative;
+}
+.bms--has-icons {
+  position: relative;
+}
+.bms--mini-table .ant-spin-nested-loading .ant-spin-container .ant-table-small {
+  border: none;
+  border-radius: 0;
+  min-height: 100px;
+}
+.bms--mini-table-row {
+  font-size: 75%;
+}
+.ant-table-small > .ant-table-content > .ant-table-body > table > .ant-table-tbody > .bms--mini-table-row > td {
+  padding: 3px;
+}
+.bms--overlap-cards {
+  overflow-y: scroll;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #00000000;
+  box-shadow: 1px 0 5px #00000036;
+}
+.bms--overlap-cards:hover {
+  cursor: pointer;
+}
+.ant-modal-body > .ant-radio-group > .bms--overlap-cards {
+  padding-left: 0;
+  padding-right: 0;
+}
+.bms--overlap-cards::-webkit-scrollbar {
+  width: 3px;
+}
+.bms--overlap-cards::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d4d4d4;
+}
+.bms--overlap-cards::-webkit-scrollbar-thumb:hover {
+  background-color: #bbbbbb;
+}
+.ant-table-header-column > div > .ant-table-column-title > .ant-radio-wrapper {
+  position: absolute;
+  right: 0;
+  top: -20px;
+}
+.ant-collapse .bms--panel-color-active > .ant-collapse-header {
+  color: rgb(82, 196, 26);
+}
+.ant-collapse .bms--panel-color-active {
+  color: #52c41a;
+  border-bottom: 1px solid #b7eb8f;
+}
+.bms--collapse-color-active {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  /* border-bottom: none; */
+}
