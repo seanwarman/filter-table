@@ -1,6 +1,6 @@
 const response = require('../../responseLib');
 const connection = require('../../../config');
-
+const mysql = require('mysql2/promise');
 const JSeq = require('jsequel');
 const schema = require('../../schema/public');
 const customFns = require('./libs/custom-functions')
