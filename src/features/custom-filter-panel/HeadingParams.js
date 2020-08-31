@@ -22,6 +22,8 @@ import {
   updateDateParams,
 } from './CustomFilterPanel.actions.js'
 
+import Brand from './Brand'
+
 const { RangePicker } = DatePicker
 
 function HeadingParams({
@@ -41,23 +43,24 @@ function HeadingParams({
   return (
     <Row gutter={16} className="top-row">
       <Col span={3}>
-        <h3 className="heading">
-          Custom Filter
-          <div className="heading-loading-icon-wrapper">
-            {
-              filterLoading ?
-                <Icon type="loading" className="loading-icon" />
-                :
-                jsonFilterSelectedCount > 0 &&
-                <Badge
-                  overflowCount={9999}
-                  count={(bookingsFiltered || []).length}
-                  className="badge"
-                >
-                </Badge>
-            }
-          </div>
-        </h3>
+
+        <Brand />
+
+        <div className="heading-loading-icon-wrapper">
+          {
+            filterLoading ?
+              <Icon type="loading" className="loading-icon" />
+              :
+              jsonFilterSelectedCount > 0 &&
+              <Badge
+                overflowCount={9999}
+                count={(bookingsFiltered || []).length}
+                className="badge"
+              >
+              </Badge>
+          }
+        </div>
+
       </Col>
       <Col span={3}>
         <Form.Item
@@ -90,7 +93,7 @@ function HeadingParams({
               right: -34,
               border: 'none',
               zIndex: 1,
-              color: '#2baae0', 
+              color: '#488eff', 
             }}
             onClick={() => updateFilterParams(
               'ascOrDesc', 

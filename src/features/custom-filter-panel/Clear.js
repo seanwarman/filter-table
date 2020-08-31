@@ -14,7 +14,7 @@ export default function Clear({
           cursor: 'pointer',
           marginTop: 16,
           textAlign: 'right',
-          color: '#2baae0',
+          color: '#488eff',
           textDecoration: 'underline',
           position: 'absolute',
           right: 0,

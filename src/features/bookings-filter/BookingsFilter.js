@@ -34,10 +34,11 @@ function BookingsFilter({
       }}
     >
 
-      <CustomFilterPanel />
-
       <br />
+
       <SearchBar />
+
+      <CustomFilterPanel />
 
       <BookingsTable />
 

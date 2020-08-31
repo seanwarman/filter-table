@@ -9,7 +9,6 @@ import color from './App.utils'
 import Routes from './Routes'
 
 import './App.css'
-import 'antd/dist/antd.css'
 
 const { Header, Sider } = Layout
 
@@ -50,105 +49,14 @@ class App extends Component {
   // █▀▀█ █▄▄█ █░░█ █░░█ █░░ █▀▀ █▄▄▀ ▀▀█
   // ▀░░▀ ▀░░▀ ▀░░▀ ▀▀▀░ ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀
 
-  HeaderPanel() {
-    return (
-      <Header
-        style={{
-          background: color('status', 'colorLabel', 'blue').color,
-          color: '#ffffff',
-          padding: 0,
-          height: 'inherit',
-          position: 'fixed', 
-          zIndex: 11, 
-          left: this.state.collapsed ? 80 : 200,
-          right: '0',
-
-        }}
-      >
-        
-      <Row type="flex" align="middle">
-        <Col span={24}>
-          <div style={{
-            display: "flex",
-            alignContent: "center",
-            paddingLeft: "15px"
-          }}> 
-            { this.state.collapsed ?
-            <div style={{
-              display: "flex",
-              alignItems: "center"
-            }}>              
-              <Icon
-                style={{ fontSize: 20 }}
-                type="caret-right" />
-            </div>
-            :
-            <div style={{
-              display: "flex",
-              alignItems: "center"
-            }}>
-              <Icon
-                style={{ fontSize: 20 }}
-                type="caret-left" />
-            </div>
-            }
-
-            <div className={'bms_pageHeader'}>{this.state.headerTitle}</div>
-
-          </div>
-        </Col>
-      </Row>
-    </Header>
-    )
-  }
-
   render() {
 
     return (
-      <div>
-        <Layout style={{ minHeight: '100vh', paddingLeft: '0px', paddingRight: '0px' }}>
-          <Sider
-            theme="light"
-            collapsed={true}
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: 'inherit',
-                maxHeight: '94px',
-                margin: '0',
-                left: '0',
-                right: '0',
-                width: '100%',
-                maxWidth: this.state.collapsed ? 80 : 200,
-                background: 'white',
-                position: 'fixed',
-                zIndex: 20
-              }}
-              className="bms_logo logo">
-              <h1 style={{ color: color('template', 'colorLabel', 'blue').color, fontWeight: 'bold', marginBottom: '0' }}>
-                {this.state.collapsed ? 'B' : 'BMS'}
-              </h1>
-            </div>
-            <div 
-              className="bms_sidebar_scrollable"
-              style={{
-                maxWidth: this.state.collapsed ? 80 : 200,
-              }}
-            >
-            </div>
-          </Sider>
 
-          <Layout>
-            {this.HeaderPanel()}
-            <div id="app-wrapper" className="App auth container-fluid">
-              <Routes changeHeader={this.changeHeader} />
-            </div>
-          </Layout>
-        </Layout>
+      <div id="app-wrapper" className="App auth container-fluid">
+        <Routes changeHeader={this.changeHeader} />
       </div>
+
     )
   }
 }

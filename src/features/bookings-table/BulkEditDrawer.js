@@ -39,8 +39,6 @@ function BulkEditDrawer({
       onClose={() => selectRowKeys([])}
       visible={selectedRowKeys.length > 0}
     >
-      <div className="bluebanner" />
-      <div className="greystrip" />
 
       <Tabs
         className="tabs"

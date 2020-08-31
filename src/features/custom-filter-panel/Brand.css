@@ -1,0 +1,9 @@
+#brand {
+  background: url(./brand.png);
+  background-size: 250px;
+  background-repeat: no-repeat;
+  max-width: 1020px;
+  height: 88px;
+  background-position-y: center;
+  background-position-x: -70px;
+}

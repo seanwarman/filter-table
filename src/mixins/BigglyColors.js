@@ -57,14 +57,14 @@ export default {
     },
     {
       value: 'Default',
-      color: '#8CEDC7',
+      color: '#488eff',
       colorLabel: 'turquoise'
     },
   ],
   partner: [
     {
       value: 'Default',
-      color: '#24A8DE',
+      color: '#488eff',
       colorLabel: 'blue'
     },
     {
@@ -307,7 +307,7 @@ export default {
     },
     {
       colorLabel: 'blue', 
-      color: '#2BAAE0', 
+      color: '#488eff', 
       icon: 'double-right', 
       value: 'Default'
     }

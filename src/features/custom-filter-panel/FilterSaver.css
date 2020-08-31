@@ -1,7 +1,7 @@
 #dropdown {
   cursor: pointer;
   text-align: right;
-  color: #2baae0;
+  color: #488eff;
   position: absolute;
   right: 26px;
   z-index: 1;
@@ -12,7 +12,7 @@
 .filterbutton { 
   cursor: pointer;
   text-align: right;
-  color: #2baae0;
+  color: #488eff;
   position: absolute;
   right: 26px;
   z-index: 1;

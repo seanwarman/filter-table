@@ -8,7 +8,7 @@ import {
 const bookingNameStyles = {
   position: 'absolute',
   borderRadius: '5px',
-  backgroundColor: '#2baae0',
+  backgroundColor: '#488eff',
   // backgroundColor: '#0dc48a',
   right: 0,
   top: 3,

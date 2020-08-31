@@ -487,7 +487,7 @@ class BulkEdit extends React.Component {
                 <span
                   style={{
                     cursor: 'pointer',
-                    color: '#2baae0',
+                    color: '#488eff',
                     textDecoration: 'underline',
                     right: 0,
                     zIndex: 1
