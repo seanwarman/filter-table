@@ -111,14 +111,14 @@ export default class Actions {
 
     const result = await this.api.updatePublic(this.queries.proceedBookings(booking, or), booking)
 
-    for(let bKey of bookingsKeys) {
+//     for(let bKey of bookingsKeys) {
 
-      this.createAudit(bKey, booking, 'Booking updated', () => {
-        const socketLib = new SocketLibrary()
-        socketLib.transmit(bookingDivKey)
-      })
+//       this.createAudit(bKey, booking, 'Booking updated', () => {
+//         const socketLib = new SocketLibrary()
+//         socketLib.transmit(bookingDivKey)
+//       })
 
-    }
+//     }
 
     return result
   }
@@ -131,10 +131,10 @@ export default class Actions {
 
     for(let bKey of bookingsKeys) {
 
-      this.createAudit(bKey, booking, 'Booking updated', () => {
-        // const socketLib = new SocketLibrary()
-        // socketLib.transmit(bookingDivKey)
-      })
+      // this.createAudit(bKey, booking, 'Booking updated', () => {
+      //   // const socketLib = new SocketLibrary()
+      //   // socketLib.transmit(bookingDivKey)
+      // })
 
     }
 
@@ -159,10 +159,10 @@ export default class Actions {
     console.log('updateBooking')
     let result = await this.api.updatePublic(this.queries.updateBooking(bookingsKey, booking), booking)
 
-    await this.createAudit(bookingsKey, booking, 'Booking updated', () => {
-      const socketLib = new SocketLibrary()
-      socketLib.transmit(bookingDivKey)
-    })
+    // await this.createAudit(bookingsKey, booking, 'Booking updated', () => {
+    //   const socketLib = new SocketLibrary()
+    //   socketLib.transmit(bookingDivKey)
+    // })
 
     return result
 
@@ -171,10 +171,10 @@ export default class Actions {
   async createUpload(upload, bookingDivKey) {
 
     let result = await this.api.createPublic(this.queries.createUpload(upload), upload, 'uploadsKey')
-    await this.createAudit(upload.bookingsKey, upload, 'Upload created', () => {
-      const socketLib = new SocketLibrary()
-      socketLib.transmit(bookingDivKey)
-    })
+    // await this.createAudit(upload.bookingsKey, upload, 'Upload created', () => {
+    //   const socketLib = new SocketLibrary()
+    //   socketLib.transmit(bookingDivKey)
+    // })
     return result
 
   }
@@ -191,12 +191,12 @@ export default class Actions {
 
       await this.api.createPublic(this.queries.createComment(), comment)
 
-      await this.createAudit(bookingsKey, comment, 'Comment created', () => {
+      // await this.createAudit(bookingsKey, comment, 'Comment created', () => {
 
-        // console.log('this.socketLib : ', this.socketLib)
-        // const socketLib = new SocketLibrary()
-        // socketLib.transmit(bookingDivKey)
-      })
+      //   // console.log('this.socketLib : ', this.socketLib)
+      //   // const socketLib = new SocketLibrary()
+      //   // socketLib.transmit(bookingDivKey)
+      // })
 
     }
 
@@ -205,25 +205,25 @@ export default class Actions {
   async createComment(comment, bookingDivKey) {
 
     let result = await this.api.createPublic(this.queries.createComment(), comment, 'bookingCommentsKey')
-    await this.createAudit(comment.bookingsKey, comment, 'Comment created', () => {
+    // await this.createAudit(comment.bookingsKey, comment, 'Comment created', () => {
 
-      console.log('this.socketLib : ', this.socketLib)
-      const socketLib = new SocketLibrary()
-      socketLib.transmit(bookingDivKey)
-    })
+    //   console.log('this.socketLib : ', this.socketLib)
+    //   const socketLib = new SocketLibrary()
+    //   socketLib.transmit(bookingDivKey)
+    // })
     return result
 
   }
 
-  async createAudit(bookingsKey, record, action, socketAction) {
+  // async createAudit(bookingsKey, record, action, socketAction) {
 
-    const description = this.helper.createAuditDescription(action, record)
-    const createdUserKey = this.userKey
+  //   const description = this.helper.createAuditDescription(action, record)
+  //   const createdUserKey = this.userKey
 
-    let result = await this.api.createPublic(this.queries.createAudit(), {description, createdUserKey, bookingsKey}, 'bookingAuditKey')
+  //   let result = await this.api.createPublic(this.queries.createAudit(), {description, createdUserKey, bookingsKey}, 'bookingAuditKey')
 
-    if(socketAction) socketAction()
+  //   if(socketAction) socketAction()
 
-    return result
-  }
+  //   return result
+  // }
 }

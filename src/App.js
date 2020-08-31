@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom';
-import { Breadcrumb, Layout, Icon, Row, Col } from 'antd'; 
+import { withRouter, Link } from 'react-router-dom'
+import { Breadcrumb, Layout, Icon, Row, Col } from 'antd' 
 
 import { getDivisions } from './App.actions'
-import color from './App.utils';
+import color from './App.utils'
 
-import Routes from './Routes';
+import Routes from './Routes'
 
-import './App.css';
-import 'antd/dist/antd.css';
+import './App.css'
+import 'antd/dist/antd.css'
 
-const { Header, Sider } = Layout;
+const { Header, Sider } = Layout
 
 class App extends Component {
 
   state = {
     collapsed: true,
     headerTitle: 'BMS',
-  };
+  }
+
+  componentDidMount() {
+    this.props.getDivisions()
+  }
 
   changeHeader = (icon, divisionName, array) => {
     this.setState({
@@ -39,7 +43,7 @@ class App extends Component {
           </Breadcrumb>
         </h3>
       </div>
-    });
+    })
   }
 
   // █░░█ █▀▀█ █▀▀▄ █▀▀▄ █░░ █▀▀ █▀▀█ █▀▀
@@ -95,7 +99,7 @@ class App extends Component {
         </Col>
       </Row>
     </Header>
-    );
+    )
   }
 
   render() {
@@ -145,7 +149,7 @@ class App extends Component {
           </Layout>
         </Layout>
       </div>
-    );
+    )
   }
 }
 
