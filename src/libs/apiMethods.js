@@ -1,6 +1,6 @@
 import axios from 'axios';
 import uuid from 'uuid';
-import { baseURL } from '../libs/BigglyAPIEndpoints'
+import { baseURL } from './basePath'
 
 const CancelToken = axios.CancelToken
 

@@ -1,4 +1,4 @@
-import colorPicker from '../../libs/bigglyStatusColorPicker'
+import colorPicker from '../../App.utils'
 
 export const flagColor = (flag, jsonFlags = []) => {
   if(!flag || jsonFlags.length === 0) return

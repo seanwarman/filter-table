@@ -1,6 +1,5 @@
 import api from '../../libs/apiMethods'
 import Queries from './Queries'
-import Helper from './Helper'
 import SocketLibrary from '../../libs/SocketLibrary'
 import uuid from 'uuid'
 
@@ -11,7 +10,6 @@ export default class Actions {
     this.userKey = userKey
     this.api = api(apiKey)
     this.queries = new Queries()
-    this.helper = new Helper()
 
   }
 

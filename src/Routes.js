@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import NotFound from './containers/NotFound'
+import NotFound from './components/NotFound'
 
 import BookingsFilter from './features/bookings-filter/BookingsFilter'
 

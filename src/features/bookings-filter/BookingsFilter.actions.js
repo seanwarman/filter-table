@@ -1,4 +1,4 @@
-import Actions from '../../actions/booking-hub/Actions'
+import Actions from '../../jsequel/bookings-filter/Actions'
 import {
   reqFailed,
 } from '../bookings-table/BookingsTable.actions'

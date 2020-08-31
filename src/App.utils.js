@@ -1,4 +1,4 @@
-import colors from '../mixins/BigglyColors';
+import colors from './mixins/BigglyColors';
 
 const bigglyStatusColorPicker = (type, key, value) => (
   colors[type].find( item => item[key] === value) ?
@@ -8,3 +8,4 @@ const bigglyStatusColorPicker = (type, key, value) => (
 )
 
 export default bigglyStatusColorPicker
+

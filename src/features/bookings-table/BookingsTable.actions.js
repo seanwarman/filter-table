@@ -1,10 +1,4 @@
-import Actions from '../../actions/booking-hub/Actions'
-// import { s3Upload } from '../../libs/awsLib';
-// import { sanitiseString } from '../../libs/jsonFormSanitiser';
-// import { message } from 'antd'
-// import {
-//   bookingsThenFilter
-// } from '../custom-filter-panel/CustomFilterPanel.actions'
+import Actions from '../../jsequel/bookings-table/Actions'
 
 export const COMMENT_CREATED = 'bookingsTable/COMMENT_CREATED'
 export const LOADING_CREATE_COMMENT = 'bookingsTable/LOADING_CREATE_COMMENT'

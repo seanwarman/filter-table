@@ -8,10 +8,10 @@ import {
   Icon,
   Card
 } from 'antd'
-import colorPicker from '../../libs/bigglyStatusColorPicker'
-import filterBySearchTerm from '../../libs/filterBySearchTerm.js'
+import colorPicker from '../../App.utils'
 import {
-  badgeOffset
+  badgeOffset,
+  filterBySearchTerm
 } from './BookingsTable.utils'
 
 import { columns } from './BookingsTable.columns.js'

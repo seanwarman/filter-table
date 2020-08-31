@@ -1,4 +1,4 @@
-import Actions from './actions/app/Actions'
+import Actions from './jsequel/app/Actions'
 
 import {
   reqFailed

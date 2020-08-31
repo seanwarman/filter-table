@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {
   Icon,
 } from 'antd'
-import color from '../../libs/bigglyStatusColorPicker'
+import color from '../../App.utils'
 
 import {
   fetchUploads,

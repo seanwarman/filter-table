@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Breadcrumb, Layout, Icon, Row, Col } from 'antd'; 
 
 import { getDivisions } from './App.actions'
-import color from './libs/bigglyStatusColorPicker';
+import color from './App.utils';
 
 import Routes from './Routes';
 

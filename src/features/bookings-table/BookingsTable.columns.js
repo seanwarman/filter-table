@@ -6,7 +6,7 @@ import {
   Tag
 } from 'antd'
 import moment from 'moment'
-import colorPicker from '../../libs/bigglyStatusColorPicker'
+import colorPicker from '../../App.utils'
 import {
   formatDataByKey,
   handleTotalValue,

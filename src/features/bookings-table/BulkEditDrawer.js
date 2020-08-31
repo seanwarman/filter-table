@@ -8,7 +8,8 @@ import {
 import {
   badgeOffset
 } from './BookingsTable.utils'
-import colorPicker from '../../libs/bigglyStatusColorPicker'
+
+import colorPicker from '../../App.utils'
 
 
 import { 

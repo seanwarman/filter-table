@@ -7,7 +7,7 @@ import {
   Icon,
   Button
 } from 'antd'
-import color from '../../libs/bigglyStatusColorPicker'
+import color from '../../App.utils'
 
 const { Title } = Typography
 
