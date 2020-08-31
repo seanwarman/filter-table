@@ -3,13 +3,6 @@ import { API } from './apiMethods';
 import Actions from '../actions/booking-hub/Actions'
 import SocketLibrary from '../libs/SocketLibrary'
 
-// const stage = (window.location.origin.includes('localhost') || window.location.origin === 'https://dev.biggly.co.uk') ?  'dev' : 'staging'
-const stage = (
-  window.location.origin.includes('localhost') || 
-  window.location.origin.includes('192.168') || 
-  window.location.origin === 'https://dev.biggly.co.uk'
-) ?  'dev' : 'staging'
-
 export default function(booking, user, loadDataAndSetState, socketLib) {
 
   if(!booking.bookingsKey || !booking.bookingDivKey) throw Error('The booking must have a bookingsKey and bookingDivKey for bookingViewApi')
@@ -52,7 +45,7 @@ export default function(booking, user, loadDataAndSetState, socketLib) {
     handleQuery: async body => {
       // KEEP: this creates an audit and a notification while updating the booking.
       try {
-        await API.put(this.props.stage, `/bookingpublic/key/${user.apiKey}/bookings/${booking.bookingsKey}/audit/notify`, {
+        await API.put(`/bookingpublic/key/${user.apiKey}/bookings/${booking.bookingsKey}/audit/notify`, {
           ...body
         });
       } catch (err) {
@@ -71,7 +64,7 @@ export default function(booking, user, loadDataAndSetState, socketLib) {
     handleUpdateGroup: async (groupKey, mutatedBooking, auditBody) => {
       // KEEP: this updates the group of bookings and creates an audit.
       try {
-        await API.put(stage, `/bookingpublic/key/${user.apiKey}/bookings/group/${groupKey}`, {
+        await API.put(`/bookingpublic/key/${user.apiKey}/bookings/group/${groupKey}`, {
           bookingBody: mutatedBooking,
           auditBody
         });
@@ -116,7 +109,7 @@ export default function(booking, user, loadDataAndSetState, socketLib) {
       if(notifyBody) {
         // KEEP: creates a notification with a special booking notify template the key will be in the controller.
         try {
-          await API.post(stage, `/custom/key/${user.apiKey}/user/${user.userKey}/notify/bookings/${booking.bookingsKey}`, notifyBody);
+          await API.post(`/custom/key/${user.apiKey}/user/${user.userKey}/notify/bookings/${booking.bookingsKey}`, notifyBody);
         } catch (error) {
           console.log('There was an error creating the email record: ', error);
         }

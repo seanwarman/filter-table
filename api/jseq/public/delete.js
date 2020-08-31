@@ -1,5 +1,5 @@
 const response = require('../../responseLib');
-const connection = require('../../config');
+const connection = require('../../../config');
 const sqlBuilder = require('bigg-mysql-wrapper');
 const JSeq = require('jsequel');
 const schema = require('../../schema/public');

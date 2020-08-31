@@ -1,11 +1,8 @@
 import axios from 'axios';
 import uuid from 'uuid';
-import { endpoints } from '../libs/BigglyAPIEndpoints'
+import { baseURL } from '../libs/BigglyAPIEndpoints'
 
 const CancelToken = axios.CancelToken
-
-const stage = 'localdev'
-
 
 // This is just some conversion, originally we used the aws-sdk API package
 // to handle our api methods but it actually just uses axios underneath anyway
@@ -13,27 +10,35 @@ const stage = 'localdev'
 // same syntax as the aws-sdk methods.
 
 export const API = {
-  async get(stage, uri, config) {
-    const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.get(uri, config)
+  async get(uri, config) {
+    const res = await axios.get(uri, {
+      baseURL,
+      ...config
+    })
     // console.log(res)
     return res.data
   },
-  async put(stage, uri, data, config) {
-    const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.put(uri, data, config)
+  async put(uri, data, config) {
+    const res = await axios.put(uri, data, {
+      baseURL,
+      ...config
+    })
     // console.log(res)
     return res.data
   },
-  async post(stage, uri, data, config) {
-    const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.post(uri, data, config)
+  async post(uri, data, config) {
+    const res = await axios.post(uri, data, {
+      baseURL,
+      ...config
+    })
     // console.log(res)
     return res.data
   },
-  async del(stage, uri, config) {
-    const url = endpoints.find(conf => conf.name === stage).endpoint
-    const res = await axios.delete(uri, config)
+  async del(uri, config) {
+    const res = await axios.delete(uri, {
+      baseURL,
+      ...config
+    })
     // console.log(res)
     return res.data
   },
@@ -104,7 +109,7 @@ export default apiKey => {
     
     async deleteAdmin(query, errResult, config) {
       try {
-        return await API.del(stage, `/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, config)
+        return await API.del(`/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, config)
       } catch (err) {
         console.log('There was an error with the general delete: ', err);
         if(errResult) return err;
@@ -117,7 +122,7 @@ export default apiKey => {
       }
       let result;
       try {
-        result = await API.post(stage, `/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, data, config)
+        result = await API.post(`/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, data, config)
       } catch (err) {
         console.log('There was an error with the general post: ', err);
         if(errResult) return err;
@@ -128,7 +133,7 @@ export default apiKey => {
     },
     async updateAdmin(query, data, errResult, config) {
       try {
-        return await API.put(stage, `/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, data, config)
+        return await API.put(`/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, data, config)
       } catch (err) {
         console.log('There was an error with the general put: ', err);
         if(errResult) return err;
@@ -139,7 +144,7 @@ export default apiKey => {
       config.cancelToken = this._generateCancelToken()
       let result;
       try {
-        result = await API.get(stage, `/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}/list`, config)
+        result = await API.get(`/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}/list`, config)
       } catch (err) {
         console.log('There was an error with the general get: ', err);
         if(errResult) return err;
@@ -150,7 +155,7 @@ export default apiKey => {
     async getAdmin(query, errResult, config = {}) {
       config.cancelToken = this._generateCancelToken()
       try {
-        return await API.get(stage, `/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, config)
+        return await API.get(`/jseq/key/${apiKey}/admin/${encodeURIComponent(JSON.stringify(query))}`, config)
       } catch (err) {
         console.log('There was an error with the general get: ', err);
         if(errResult) return err;
@@ -164,7 +169,7 @@ export default apiKey => {
 
     async deletePublic(query, errResult, config) {
       try {
-        return await API.del(stage, `/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, config)
+        return await API.del(`/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, config)
       } catch (err) {
         console.log('There was an error with the general delete: ', err);
         if(errResult) return err;
@@ -177,7 +182,7 @@ export default apiKey => {
       }
       let result;
       try {
-        result = await API.post(stage, `/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, data, config)
+        result = await API.post(`/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, data, config)
       } catch (err) {
         console.log('There was an error with the general post: ', err);
         if(errResult) return err;
@@ -188,7 +193,7 @@ export default apiKey => {
     },
     async updatePublic(query, data, errResult, config) {
       try {
-        return await API.put(stage, `/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, data, config)
+        return await API.put(`/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, data, config)
       } catch (err) {
         console.log('There was an error with the general put: ', err);
         if(errResult) return err;
@@ -198,7 +203,7 @@ export default apiKey => {
     async listPublic(query, errResult, config = {}) {
       config.cancelToken = this._generateCancelToken()
       try {
-        return await API.get(stage, `/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}/list`, config)
+        return await API.get(`/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}/list`, config)
       } catch (err) {
         console.log('There was an error with the general get: ', err);
         if(errResult) return err;
@@ -208,7 +213,7 @@ export default apiKey => {
     async getPublic(query, errResult, config = {}) {
       config.cancelToken = this._generateCancelToken()
       try {
-        return await API.get(stage, `/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, config)
+        return await API.get(`/jseq/key/${apiKey}/public/${encodeURIComponent(JSON.stringify(query))}`, config)
       } catch (err) {
         console.log('There was an error with the general get: ', err);
         if(errResult) return err;

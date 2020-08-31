@@ -11,7 +11,6 @@ export default function appReducer(state = {
     apiKey: 'e242d961-98c2-11e9-af48-c3fbaea4c686',
     userKey: 'be1a9270-a949-11e9-9e98-6fefd095aa2c'
   },
-  stage: 'localdev',
 
   error: null,
   fetching: false,

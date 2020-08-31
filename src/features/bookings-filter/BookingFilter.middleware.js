@@ -69,7 +69,7 @@ const customFilterPanelMiddleware = store => next => action => {
 
 export async function bookingsThenFilter(dispatch, getState) {
 
-  const { stage, user } = getState().app
+  const { user } = getState().app
   const { apiKey, userKey } = user
 
   const start = 0
@@ -84,7 +84,7 @@ export async function bookingsThenFilter(dispatch, getState) {
   let bookings
 
   try {
-    bookings = await fetchBookingsByFilterOptions(stage, apiKey, userKey, sortBy, start, end, ascOrDesc, jsonFilter)
+    bookings = await fetchBookingsByFilterOptions(apiKey, userKey, sortBy, start, end, ascOrDesc, jsonFilter)
   } catch (error) {
     if(error.__CANCEL__) return dispatch(reqCancelled())
     console.log('There was an error getting the bookings by jsonFilter', error)
@@ -110,7 +110,7 @@ export async function bookingsThenFilter(dispatch, getState) {
   let jsonFilterResult
 
   try {
-    jsonFilterResult = await fetchJsonFilter(stage, apiKey, userKey, jsonFilter)
+    jsonFilterResult = await fetchJsonFilter(apiKey, userKey, jsonFilter)
   } catch (error) {
     if(error.__CANCEL__) return dispatch(reqCancelled())
     console.log('There was an error getting the jsonFilter options: ', error)
@@ -135,7 +135,7 @@ export async function bookingsThenFilter(dispatch, getState) {
 
 export async function filterThenBookings(dispatch, getState) {
 
-  const { stage, user } = getState().app
+  const { user } = getState().app
   const { apiKey, userKey } = user
 
   const {
@@ -145,7 +145,7 @@ export async function filterThenBookings(dispatch, getState) {
   let jsonFilterResult
 
   try {
-    jsonFilterResult = await fetchJsonFilter(stage, apiKey, userKey, firstJsonFilter)
+    jsonFilterResult = await fetchJsonFilter(apiKey, userKey, firstJsonFilter)
   } catch (error) {
     if(error.__CANCEL__) return dispatch(reqCancelled())
     console.log('There was an error getting the jsonFilter options: ', error)
@@ -179,7 +179,7 @@ export async function filterThenBookings(dispatch, getState) {
   let bookings
 
   try {
-    bookings = await fetchBookingsByFilterOptions(stage, apiKey, userKey, sortBy, start, end, ascOrDesc, secondJsonFilter)
+    bookings = await fetchBookingsByFilterOptions(apiKey, userKey, sortBy, start, end, ascOrDesc, secondJsonFilter)
   } catch (error) {
     if(error.__CANCEL__) return dispatch(reqCancelled())
     console.log('There was an error getting the bookings by jsonFilter', error)
@@ -202,7 +202,7 @@ export async function filterThenBookings(dispatch, getState) {
 
 }
 
-function fetchBookingsByFilterOptions(stage, apiKey, userKey, sortBy, start, end, ascOrDesc, jsonFilter) {
+function fetchBookingsByFilterOptions(apiKey, userKey, sortBy, start, end, ascOrDesc, jsonFilter) {
 
   if(cancelTokens.bookingsFiltered) cancelTokens.bookingsFiltered()
 
@@ -212,13 +212,13 @@ function fetchBookingsByFilterOptions(stage, apiKey, userKey, sortBy, start, end
 
   const useOptions = jsonFilter.find(json => json.options.find(opt => opt.selected))
 
-  return  API.put(stage, `/custom/key/${apiKey}/user/${userKey}/bookings/sort/${sortBy}/${start}/${end}/${ascOrDesc}`, {
+  return  API.put(`/custom/key/${apiKey}/user/${userKey}/bookings/sort/${sortBy}/${start}/${end}/${ascOrDesc}`, {
     jsonFilterOptions: useOptions ? jsonFilter : []
   }, config)
 
 }
 
-function fetchJsonFilter(stage, apiKey, userKey, jsonFilter) {
+function fetchJsonFilter(apiKey, userKey, jsonFilter) {
 
   if(cancelTokens.filterOptions) cancelTokens.filterOptions()
 
@@ -226,7 +226,7 @@ function fetchJsonFilter(stage, apiKey, userKey, jsonFilter) {
     cancelToken: generateCancelToken('filterOptions') 
   }
 
-  return API.put(stage, `/custom/key/${apiKey}/user/${userKey}/bookings/options/count`, {
+  return API.put(`/custom/key/${apiKey}/user/${userKey}/bookings/options/count`, {
     jsonFilterOptions: jsonFilter
   }, config)
 }

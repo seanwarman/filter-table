@@ -14,8 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cors())
 
-
-
 function handler(req, res, callback) {
 
   let event

@@ -1,6 +1,6 @@
 const response = require('../responseLib');
 const sqlBuilder = require('bigg-mysql-wrapper');
-const connections = require('../config');
+const connections = require('../../config')
 
 const db = new sqlBuilder();
 

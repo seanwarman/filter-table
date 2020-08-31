@@ -1,5 +1,5 @@
 const response = require('../../responseLib');
-const connection = require('../../config');
+const connection = require('../../../config');
 const mysql = require('mysql2/promise');
 
 const JSeq = require('jsequel');
