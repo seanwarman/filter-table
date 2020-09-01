@@ -20,8 +20,8 @@
 
 #custom-filter-panel .heading-loading-icon-wrapper {
   position: absolute;
-  top: -30;
-  right: 30;
+  bottom: 0;
+  left: -36%;
 }
 
 #custom-filter-panel .loading-icon {

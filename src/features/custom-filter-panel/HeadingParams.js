@@ -22,8 +22,6 @@ import {
   updateDateParams,
 } from './CustomFilterPanel.actions.js'
 
-import Brand from './Brand'
-
 const { RangePicker } = DatePicker
 
 function HeadingParams({
@@ -42,87 +40,96 @@ function HeadingParams({
 
   return (
     <Row gutter={16} className="top-row">
-      <Col span={3}>
 
-        <Brand />
-
-        <div className="heading-loading-icon-wrapper">
-          {
-            filterLoading ?
-              <Icon type="loading" className="loading-icon" />
-              :
-              jsonFilterSelectedCount > 0 &&
-              <Badge
-                overflowCount={9999}
-                count={(bookingsFiltered || []).length}
-                className="badge"
-              >
-              </Badge>
-          }
-        </div>
-
-      </Col>
-      <Col span={3}>
-        <Form.Item
-          label="Max Bookings"
-        >
-          <InputNumber
-            size="small"
-            // onKeyUp={onKeyUpEnterFilter}
-            value={maxFilterBookings}
-            onChange={num => updateFilterParams('maxFilterBookings', num)}
-            min={1}
-          />
-        </Form.Item>
-      </Col>
-      <Col span={6}>
-        <Form.Item 
-          label="Sort By"
+      <Col span={12}>
+        <Row
           style={{
-            paddingRight: '35%',
-            position: 'relative'
+            display: 'flex', 
+            justifyContent: 'space-around',
+            position: 'relative',
           }}
         >
-          <Button
-            shape="circle"
-            size="small"
-            icon={ascOrDesc === 'desc' ? 'sort-descending' : 'sort-ascending'}
-            style={{ 
-              position: 'absolute',
-              top: -9,
-              right: -34,
-              border: 'none',
-              zIndex: 1,
-              color: '#488eff', 
-            }}
-            onClick={() => updateFilterParams(
-              'ascOrDesc', 
-              ascOrDesc === 'desc' ?
-              'asc' : 'desc'
-            )}
-          />
-          <Select
-            size="small"
-            style={{ width: '100%' }}
-            value={sortBy}
-            onChange={selection => updateFilterParams('sortBy', selection)}
-          >
-            <Select.Option value="bookingName">Booking Name</Select.Option>
-            <Select.Option value="periodKey">Campaign Period</Select.Option>
-            <Select.Option value="tmpName">Template Name</Select.Option>
-            <Select.Option value="currentStatus">Status</Select.Option>
-            <Select.Option value="strategy">Strategy</Select.Option>
-            <Select.Option value="bookingMonth">Booking Month</Select.Option>
-            <Select.Option value="partnerName">Partner Name</Select.Option>
-            <Select.Option value="customerName">Customer Name</Select.Option>
-            <Select.Option value="units">Units</Select.Option>
-            <Select.Option value="created">Created Date</Select.Option>
-            <Select.Option value="createdByFullName">Created By</Select.Option>
-            <Select.Option value="assignedFullName">Assigned To</Select.Option>
-            <Select.Option value="dueDate">Due Date</Select.Option>
-            <Select.Option value="completedDate">Completed Date</Select.Option>
-          </Select>
-        </Form.Item>
+          <Col span={6}>
+
+            <div className="heading-loading-icon-wrapper">
+              {
+                filterLoading ?
+                  <Icon type="loading" className="loading-icon" />
+                  :
+                  jsonFilterSelectedCount > 0 &&
+                  <Badge
+                    overflowCount={9999}
+                    count={(bookingsFiltered || []).length}
+                    className="badge"
+                  >
+                  </Badge>
+              }
+            </div>
+
+          </Col>
+          <Col span={6}>
+            <Form.Item
+              label="Max Bookings"
+            >
+              <InputNumber
+                size="small"
+                // onKeyUp={onKeyUpEnterFilter}
+                value={maxFilterBookings}
+                onChange={num => updateFilterParams('maxFilterBookings', num)}
+                min={1}
+              />
+            </Form.Item>
+          </Col>
+          <Col span={5}>
+            <Form.Item 
+              label="Sort By"
+              style={{
+                paddingRight: '35%',
+                position: 'relative'
+              }}
+            >
+              <Button
+                shape="circle"
+                size="small"
+                icon={ascOrDesc === 'desc' ? 'sort-descending' : 'sort-ascending'}
+                style={{ 
+                  position: 'absolute',
+                  top: -9,
+                  right: -34,
+                  border: 'none',
+                  zIndex: 1,
+                  color: '#488eff', 
+                }}
+                onClick={() => updateFilterParams(
+                  'ascOrDesc', 
+                  ascOrDesc === 'desc' ?
+                  'asc' : 'desc'
+                )}
+              />
+              <Select
+                size="small"
+                style={{ width: '100%' }}
+                value={sortBy}
+                onChange={selection => updateFilterParams('sortBy', selection)}
+              >
+                <Select.Option value="bookingName">Booking Name</Select.Option>
+                <Select.Option value="periodKey">Campaign Period</Select.Option>
+                <Select.Option value="tmpName">Template Name</Select.Option>
+                <Select.Option value="currentStatus">Status</Select.Option>
+                <Select.Option value="strategy">Strategy</Select.Option>
+                <Select.Option value="bookingMonth">Booking Month</Select.Option>
+                <Select.Option value="partnerName">Partner Name</Select.Option>
+                <Select.Option value="customerName">Customer Name</Select.Option>
+                <Select.Option value="units">Units</Select.Option>
+                <Select.Option value="created">Created Date</Select.Option>
+                <Select.Option value="createdByFullName">Created By</Select.Option>
+                <Select.Option value="assignedFullName">Assigned To</Select.Option>
+                <Select.Option value="dueDate">Due Date</Select.Option>
+                <Select.Option value="completedDate">Completed Date</Select.Option>
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
       </Col>
       <div
         style={{

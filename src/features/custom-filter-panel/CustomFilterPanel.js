@@ -5,12 +5,14 @@ import {
 } from 'antd'
 
 import FilterSaver from './FilterSaver'
+import Brand from './Brand'
 import HeadingParams from './HeadingParams'
 import FilterOptions from './FilterOptions'
 import ClearButton from './ClearButton'
 import HideFilterIcon from './HideFilterIcon'
 
 import './CustomFilterPanel.css'
+
 
 function CustomFilterPanel({
   hideFilter = false,
@@ -25,6 +27,8 @@ function CustomFilterPanel({
         style={{ height: hideFilter ? 150 : 511 }}
       >
         <FilterSaver />
+
+        <Brand />
 
         <HeadingParams />
 
