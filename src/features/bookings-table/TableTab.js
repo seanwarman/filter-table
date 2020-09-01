@@ -112,11 +112,7 @@ function TableTab({
               showSizeChanger: true,
               position: 'both',
             }}
-            columns={
-              columns(divisions, bookingsKey =>
-                console.log('bookingsKey:', bookingsKey)
-              )
-            }
+            columns={columns(divisions)}
             dataSource={filterBySearchTerm(searchTerm, bookingsFiltered)}
           ></Table>
         </Tabs.TabPane>

@@ -21,15 +21,12 @@ exports.main = async(event, context, callback) => {
   // 1 of 3: To add a new filter column add the selection to here (unless it doesn't need any formatting function)...
   const selections = {
     bookingMonth: `REPLACE(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, CONCAT('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Booking Month'), 4, 1), ']')), '$.value'), '"', '')`,
-    strategy: `REPLACE(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, CONCAT('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Strategy'), 4, 1), ']')), '$.value'), '"', '')`,
     units: `REPLACE(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, CONCAT('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Units'), 4, 1), ']')), '$.value'), '"', '')`,
-    biggSpend: `REPLACE(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, CONCAT('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Bigg Spend'), 4, 1), ']')), '$.value'), '"', '')`,
     assignedFullName: `CONCAT(users2.firstName, ' ', users2.lastName)`,
     createdByFullName: `CONCAT(t96wz179m4ly7hn9.users.firstName, ' ', t96wz179m4ly7hn9.users.lastName)`,
     partnerName: `t96wz179m4ly7hn9.partners.partnerName`,
     customerName: `t96wz179m4ly7hn9.customers.customerName`,
     tmpName: `templates.tmpName`,
-    uploadsCount: `(SELECT count(*) FROM t96wz179m4ly7hn9.uploads WHERE uploads.bookingsKey = bookings.bookingsKey)`,
     commentCount: `(SELECT count(*) FROM t96wz179m4ly7hn9.bookingComments WHERE bookingComments.bookingsKey = bookings.bookingsKey)`,
     bookingDivName: `t96wz179m4ly7hn9.bookingDivisions.bookingDivName`,
   }
@@ -38,16 +35,13 @@ exports.main = async(event, context, callback) => {
   let ifType = {
     currentStatus: '*',
     bookingMonth: '*',
-    strategy: '*',
     units: '*',
-    biggSpend: '*',
     createdByFullName: '*',
     assignedFullName: '*',
     partnerName: '*',
     customerName: '*',
     tmpName: '*',
     queried: '*',
-    uploadsCount: '*',
     created: '*',
     dueDate: '*',
     completedDate: '*',
@@ -199,22 +193,6 @@ exports.main = async(event, context, callback) => {
     group by \`option\`
     having \`option\` is not NULL
 
-    -- STRATEGY
-    union
-    select
-    'strategy' as \`dataIndex\`,
-    'Strategy' as \`prettyName\`,
-    'string' as \`type\`,
-    replace(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Strategy'), 4, 1), ']')), '$.value'), '"', '') as 'option',
-    COUNT(${ifType.strategy}) as \`count\`,
-    'false' as \`selected\`
-    from
-    t96wz179m4ly7hn9.bookings
-    ${extraJoins.join(' ')}
-    ${whereString}
-    group by \`option\`
-    having \`option\` is not NULL
-
     -- PERIOD KEY
     union
     select
@@ -239,22 +217,6 @@ exports.main = async(event, context, callback) => {
     'number' as \`type\`,
     replace(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Units'), 4, 1), ']')), '$.value'), '"', '') as 'option',
     COUNT(${ifType.units}) as \`count\`,
-    'false' as \`selected\`
-    from
-    t96wz179m4ly7hn9.bookings
-    ${extraJoins.join(' ')}
-    ${whereString}
-    group by \`option\`
-    having \`option\` is not NULL
-
-    -- BIGGSPEND
-    union
-    select
-    'biggSpend' as \`dataIndex\`,
-    'Bigg Spend' as \`prettyName\`,
-    'number' as \`type\`,
-    replace(JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'all', 'Bigg Spend'), 4, 1), ']')), '$.value'), '"', '') as 'option',
-    COUNT(${ifType.biggSpend}) as \`count\`,
     'false' as \`selected\`
     from
     t96wz179m4ly7hn9.bookings
@@ -379,23 +341,7 @@ exports.main = async(event, context, callback) => {
     ${whereString}
     group by \`option\`
     having \`option\` is not NULL
-    
-    -- UPLOADS COUNT
-    union
-    select
-    'uploadsCount' as \`dataIndex\`,
-    'Uploads' as \`prettyName\`,
-    'number' as \`type\`,
-    (select count(*) from t96wz179m4ly7hn9.uploads where uploads.bookingsKey = bookings.bookingsKey) as \`option\`,
-    COUNT(${ifType.uploadsCount}) as \`count\`,
-    'false' as \`selected\`
-    from 
-    t96wz179m4ly7hn9.bookings
-    ${extraJoins.join(' ')}
-    ${whereString}
-    group by \`option\`
-    having \`option\` is not NULL
-    
+
     -- COMMENT COUNT
     union
     select
@@ -403,7 +349,6 @@ exports.main = async(event, context, callback) => {
     'Comments' as \`prettyName\`,
     'number' as \`type\`,
     (select count(*) from t96wz179m4ly7hn9.bookingComments where bookingComments.bookingsKey = bookings.bookingsKey) as \`option\`,
-
     COUNT(${ifType.commentCount}) as \`count\`,
     'false' as \`selected\`
     from 

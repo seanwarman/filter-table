@@ -23,9 +23,7 @@ module.exports = {
     t96wz179m4ly7hn9.bookings.periodKey,
 
     JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'one', 'Booking Month'), 4, 1), ']')), '$.value') AS bookingMonth,
-    JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'one', 'Strategy'), 4, 1), ']')), '$.value') AS strategy,
     JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'one', 'Units'), 4, 1), ']')), '$.value') AS units,
-    JSON_EXTRACT(JSON_EXTRACT(t96wz179m4ly7hn9.bookings.jsonForm, concat('$[', substr(JSON_SEARCH(t96wz179m4ly7hn9.bookings.jsonForm, 'one', 'Bigg Spend'), 4, 1), ']')), '$.value') as biggSpend,
 
     bookingDivisions.bookingDivName,
     bookingDivisions.icon,

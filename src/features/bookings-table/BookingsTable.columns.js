@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {
   Tooltip,
   Icon,
@@ -10,26 +9,23 @@ import colorPicker from '../../App.utils'
 import {
   formatDataByKey,
   handleTotalValue,
-  parseDivName,
 } from './BookingsTable.utils.js'
 
 import TaskIncomplete from './TaskIncomplete'
 import TaskStatus from './TaskStatus'
 import RenderFlag from './RenderFlag'
 
-export const columns = (divisions, openBookingTabDrawer) => [
+export const columns = divisions => [
   {
     title: 'Booking Name',
     dataIndex: 'bookingName',
     key: 'bookingName',
     className: 'bms--has-icons',
-    render: (text, record) => (
+    render: (bookingName, record) => (
       <div>
-        <Link
-          to={`/${parseDivName(record.bookingDivKey, divisions)}/bookings/booking/${record.bookingsKey}`}
-        >
-          {decodeURIComponent(text)}
-        </Link>
+
+        {decodeURIComponent(bookingName)}
+
         <div style={{
           position: 'absolute',
           right: 2,
@@ -48,21 +44,9 @@ export const columns = (divisions, openBookingTabDrawer) => [
           }
           {
             <Tooltip
-              title={record.uploadsCount > 0 ? record.uploadsCount : 'None'}
-            >
-              <Icon
-                onClick={() => openBookingTabDrawer(record.bookingsKey)}
-                className={record.uploadsCount > 0 ? 'bms--icon-alive' : 'bms--icon-dead'}
-                type="paper-clip"
-              />
-            </Tooltip>
-          }
-          {
-            <Tooltip
               title={record.commentCount > 0 ? record.commentCount : 'None'}
             >
               <Icon
-                onClick={() => openBookingTabDrawer(record.bookingsKey)}
                 className={record.commentCount > 0 ? 'bms--icon-alive' : 'bms--icon-dead'}
                 type="message"
               />
@@ -95,22 +79,6 @@ export const columns = (divisions, openBookingTabDrawer) => [
     render: (text, record) => {
       let status = record.currentStatus
       return formatDataByKey('status', status)
-    }
-  },
-  {
-    title: 'Strategy',
-    dataIndex: 'strategy',
-    key: 'strategy',
-    className: 'bms--has-tmp-name-tag',
-    render: (text, record) => {
-      let bookingColor = record.strategy ? colorPicker('strategy', 'value', record.strategy).color : ''
-      return (
-        <div style={{ display: 'flex', alignItems: 'center', backgroundColor: bookingColor, position: 'absolute', bottom: '0', top: '0', left: '0', right: '0' }}>
-          <p style={{ padding: '16px', lineHeight: '1em', marginBottom: '0', color: '#ffffff' }}>
-            {decodeURIComponent(text || '')}
-          </p>
-        </div>
-      )
     }
   },
   {
@@ -201,41 +169,6 @@ export const columns = (divisions, openBookingTabDrawer) => [
         }
       }
     }
-  },
-  {
-    title:
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        {
-          handleTotalValue('biggSpend') > 0 &&
-            <span
-              style={{
-                width: 240,
-                position: 'absolute',
-                textAlign: 'center',
-                top: -14,
-                zIndex: 1,
-              }}
-            >
-              <Tag
-                color="#0000008c"
-                style={{
-                  fontSize: 11,
-                }}
-              >
-                Total Spend £{handleTotalValue('biggSpend')}
-              </Tag>
-            </span>
-        }
-        Bigg Spend
-      </div>,
-    dataIndex: 'biggSpend',
-    key: 'biggSpend',
-    render: val => <div>£{val}</div>
   },
   {
     title: 'Partner Name',

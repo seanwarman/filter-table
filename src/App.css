@@ -24429,6 +24429,16 @@ div.ant-typography-edit-content {
   padding-right: 126px;
 }
 
+.bms--icon-alive {
+  color: #2baae0;
+  margin-left: 4px;
+}
+
+.bms--icon-dead {
+  color: #bfbfbf;
+  margin-left: 4px;
+}
+
 .hide {
   display: none !important;
 }
